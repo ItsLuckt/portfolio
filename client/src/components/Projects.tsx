@@ -18,7 +18,7 @@ const projects = [
     category: "Roblox Systems",
     description: "Système de sanction automatisée innovant pour la gestion communautaire et la sécurité du jeu.",
     tags: ["Lua", "Automation", "Security"],
-    links: { demo: "#", github: "" },
+    links: { demo: "https://www.roblox.com/games/88744853552411/French-Donations", github: "" },
     color: "from-blue-500/20 to-cyan-500/20"
   },
   {
