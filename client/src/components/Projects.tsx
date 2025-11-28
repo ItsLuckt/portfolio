@@ -10,7 +10,7 @@ const projects = [
     category: "Roblox Development",
     description: "Jeu de Roleplay scolaire francophone immersif sur Roblox. Développement des systèmes de gameplay et d'interactions.",
     tags: ["Lua", "Roblox Studio", "RP"],
-    links: { demo: "https://www.roblox.com/games/88123962653564/The-School-RP-FR", github: "https://github.com/ItsLuckt" },
+    links: { demo: "https://www.roblox.com/games/88123962653564/The-School-RP-FR", github: "" },
     color: "from-red-500/20 to-orange-500/20"
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     category: "Roblox Systems",
     description: "Système de sanction automatisée innovant pour la gestion communautaire et la sécurité du jeu.",
     tags: ["Lua", "Automation", "Security"],
-    links: { demo: "#", github: "https://github.com/ItsLuckt" },
+    links: { demo: "#", github: "" },
     color: "from-blue-500/20 to-cyan-500/20"
   },
   {
@@ -77,14 +77,16 @@ export default function Projects() {
                   </div>
                 </CardContent>
                 <CardFooter className="gap-4 pt-0">
-                  <Button 
-                    size="sm" 
-                    className="w-full" 
-                    variant="outline"
-                    onClick={() => window.open(project.links.github, "_blank")}
-                  >
-                    <Github className="w-4 h-4 mr-2" /> Code
-                  </Button>
+                  {project.links.github && (
+                    <Button 
+                      size="sm" 
+                      className="w-full" 
+                      variant="outline"
+                      onClick={() => window.open(project.links.github, "_blank")}
+                    >
+                      <Github className="w-4 h-4 mr-2" /> Code
+                    </Button>
+                  )}
                   <Button 
                     size="sm" 
                     className="w-full"
