@@ -17,7 +17,6 @@ export default function Navbar() {
     { name: "Accueil", href: "#hero" },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
-    { name: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -31,21 +30,25 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-white/10 py-4"
+          : "bg-transparent py-6"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <div 
+        <div
           className="flex items-center gap-2 font-heading font-bold text-2xl cursor-pointer"
           onClick={() => scrollToSection("#hero")}
         >
           <div className="p-2 bg-primary rounded-lg">
             <Code2 className="w-6 h-6 text-white" />
           </div>
-          <span className="text-foreground">Mon Portfolio - <span className="text-primary">Luckt</span></span>
+          <span className="text-foreground">
+            Mon Portfolio<span className="text-primary"> Luckt</span>
+          </span>
         </div>
 
         {/* Desktop Menu */}
@@ -59,7 +62,7 @@ export default function Navbar() {
               {link.name}
             </button>
           ))}
-          <Button 
+          <Button
             onClick={() => scrollToSection("#contact")}
             className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
           >
@@ -68,7 +71,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -78,7 +81,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,7 +95,10 @@ export default function Navbar() {
               {link.name}
             </button>
           ))}
-          <Button onClick={() => scrollToSection("#contact")} className="w-full mt-4">
+          <Button
+            onClick={() => scrollToSection("#contact")}
+            className="w-full mt-4"
+          >
             Me Contacter
           </Button>
         </motion.div>
