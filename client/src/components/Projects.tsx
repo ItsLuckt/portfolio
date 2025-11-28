@@ -77,7 +77,12 @@ export default function Projects() {
                   </div>
                 </CardContent>
                 <CardFooter className="gap-4 pt-0">
-                  <Button size="sm" className="w-full" variant="outline">
+                  <Button 
+                    size="sm" 
+                    className="w-full" 
+                    variant="outline"
+                    onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
+                  >
                     <Github className="w-4 h-4 mr-2" /> Code
                   </Button>
                   <Button size="sm" className="w-full">
