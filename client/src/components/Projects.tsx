@@ -6,27 +6,27 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 
 const projects = [
   {
-    title: "Roblox Adventure RPG",
-    category: "Game Development",
-    description: "Un jeu d'aventure RPG immersif sur Roblox avec des systèmes de quêtes dynamiques et une économie personnalisée codée en Lua.",
-    tags: ["Lua", "Roblox Studio", "Game Design"],
-    links: { demo: "#", github: "#" },
+    title: "The School RP FR",
+    category: "Roblox Development",
+    description: "Jeu de Roleplay scolaire francophone immersif sur Roblox. Développement des systèmes de gameplay et d'interactions.",
+    tags: ["Lua", "Roblox Studio", "RP"],
+    links: { demo: "https://www.roblox.com/games/88123962653564/The-School-RP-FR", github: "https://github.com/ItsLuckt" },
     color: "from-red-500/20 to-orange-500/20"
+  },
+  {
+    title: "French Donations",
+    category: "Roblox Systems",
+    description: "Système de sanction automatisée innovant pour la gestion communautaire et la sécurité du jeu.",
+    tags: ["Lua", "Automation", "Security"],
+    links: { demo: "#", github: "https://github.com/ItsLuckt" },
+    color: "from-blue-500/20 to-cyan-500/20"
   },
   {
     title: "Portfolio Moderne",
     category: "Web Development",
     description: "Ce site portfolio interactif construit avec React, TypeScript et Framer Motion pour des animations fluides.",
     tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-    links: { demo: "#", github: "#" },
-    color: "from-blue-500/20 to-cyan-500/20"
-  },
-  {
-    title: "Discord Bot Python",
-    category: "Backend Tooling",
-    description: "Un bot Discord multifonctionnel pour la gestion de communauté, incluant modération automatique et système de niveaux.",
-    tags: ["Python", "Discord.py", "SQL"],
-    links: { demo: "#", github: "#" },
+    links: { demo: "#", github: "https://github.com/ItsLuckt" },
     color: "from-green-500/20 to-emerald-500/20"
   }
 ];
@@ -57,7 +57,7 @@ export default function Projects() {
               <Card className="h-full bg-background/50 border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col">
                 <div className={`h-48 w-full bg-gradient-to-br ${project.color} relative overflow-hidden group-hover:scale-105 transition-transform duration-500`}>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-bold text-2xl text-white/20 uppercase tracking-widest">{project.category}</span>
+                    <span className="font-bold text-2xl text-white/20 uppercase tracking-widest text-center px-4">{project.category}</span>
                   </div>
                 </div>
                 <CardHeader>
@@ -81,12 +81,17 @@ export default function Projects() {
                     size="sm" 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
+                    onClick={() => window.open(project.links.github, "_blank")}
                   >
                     <Github className="w-4 h-4 mr-2" /> Code
                   </Button>
-                  <Button size="sm" className="w-full">
-                    {project.category.includes("Game") ? <Play className="w-4 h-4 mr-2" /> : <ExternalLink className="w-4 h-4 mr-2" />} 
+                  <Button 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(project.links.demo, "_blank")}
+                    disabled={project.links.demo === "#"}
+                  >
+                    {project.category.includes("Roblox") ? <Play className="w-4 h-4 mr-2" /> : <ExternalLink className="w-4 h-4 mr-2" />} 
                     Demo
                   </Button>
                 </CardFooter>
