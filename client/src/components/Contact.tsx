@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,17 +38,27 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Email</h3>
-                <p className="text-muted-foreground">contact@exemple.com</p>
+                <p className="text-muted-foreground">luckt.rbx@gmail.com</p>
               </div>
             </div>
             
+            <div className="flex items-start gap-4">
+              <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                <FaDiscord className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-1">Discord</h3>
+                <p className="text-muted-foreground">luckt</p>
+              </div>
+            </div>
+
             <div className="flex items-start gap-4">
               <div className="p-3 bg-primary/10 rounded-lg text-primary">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Localisation</h3>
-                <p className="text-muted-foreground">Paris, France (Remote Friendly)</p>
+                <p className="text-muted-foreground">Lille, France</p>
               </div>
             </div>
 
