@@ -1,35 +1,10 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Play } from "lucide-react";
+import { ExternalLink, Github, Play, Info } from "lucide-react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
-const projects = [
-  {
-    title: "The School RP FR",
-    category: "Roblox Development",
-    description: "Jeu de Roleplay scolaire francophone immersif sur Roblox. Développement des systèmes de gameplay et d'interactions.",
-    tags: ["Lua", "Roblox Studio", "RP"],
-    links: { demo: "https://www.roblox.com/games/88123962653564/The-School-RP-FR", github: "" },
-    color: "from-red-500/20 to-orange-500/20"
-  },
-  {
-    title: "French Donations",
-    category: "Roblox Systems",
-    description: "Système de sanction automatisée innovant pour la gestion communautaire et la sécurité du jeu.",
-    tags: ["Lua", "Automation", "Security"],
-    links: { demo: "https://www.roblox.com/games/88744853552411/French-Donations", github: "" },
-    color: "from-blue-500/20 to-cyan-500/20"
-  },
-  {
-    title: "Portfolio Moderne",
-    category: "Web Development",
-    description: "Ce site portfolio interactif construit avec React, TypeScript et Framer Motion pour des animations fluides.",
-    tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-    links: { demo: "#", github: "https://github.com/ItsLuckt" },
-    color: "from-green-500/20 to-emerald-500/20"
-  }
-];
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -48,7 +23,7 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -65,30 +40,28 @@ export default function Projects() {
                   <CardDescription>{project.category}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 line-clamp-3">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
+                    {project.tags.slice(0, 3).map(tag => (
                       <Badge key={tag} variant="secondary" className="bg-secondary/50 text-xs">
                         {tag}
                       </Badge>
                     ))}
+                    {project.tags.length > 3 && (
+                      <Badge variant="secondary" className="bg-secondary/50 text-xs">+{project.tags.length - 3}</Badge>
+                    )}
                   </div>
                 </CardContent>
-                <CardFooter className="gap-4 pt-0">
-                  {project.links.github && (
-                    <Button 
-                      size="sm" 
-                      className="w-full" 
-                      variant="outline"
-                      onClick={() => window.open(project.links.github, "_blank")}
-                    >
-                      <Github className="w-4 h-4 mr-2" /> Code
+                <CardFooter className="gap-3 pt-0 grid grid-cols-2">
+                   <Link href={`/project/${project.slug}`} className="w-full">
+                    <Button variant="secondary" className="w-full bg-secondary/50 hover:bg-secondary">
+                      <Info className="w-4 h-4 mr-2" /> Détails
                     </Button>
-                  )}
+                  </Link>
+                  
                   <Button 
-                    size="sm" 
                     className="w-full"
                     onClick={() => window.open(project.links.demo, "_blank")}
                     disabled={project.links.demo === "#"}
