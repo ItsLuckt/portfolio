@@ -27,8 +27,8 @@ export default function Legal() {
                 Ce site est un portfolio personnel édité par un particulier à des fins non commerciales.
               </p>
               <p>
-                <strong>Responsable de la publication :</strong> [Votre Nom]<br />
-                <strong>Contact :</strong> contact@exemple.com
+                <strong>Responsable de la publication :</strong> Luckt<br />
+                <strong>Contact :</strong> luckt.rbx@gmail.Com
               </p>
             </section>
 
