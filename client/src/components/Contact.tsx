@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -86,8 +87,9 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer className="mt-20 pt-8 border-t border-white/5 text-center text-sm text-muted-foreground">
+      <footer className="mt-20 pt-8 border-t border-white/5 text-center text-sm text-muted-foreground flex flex-col gap-2 pb-8">
         <p>© 2025 Portfolio Développeur. Fait avec React & Passion.</p>
+        <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions Légales</Link>
       </footer>
     </section>
   );
