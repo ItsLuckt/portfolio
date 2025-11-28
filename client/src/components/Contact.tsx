@@ -99,7 +99,7 @@ export default function Contact() {
       </div>
 
       <footer className="mt-20 pt-8 border-t border-white/5 text-center text-sm text-muted-foreground flex flex-col gap-2 pb-8">
-        <p>© 2025 Portfolio Développeur. Fait avec React & Passion.</p>
+        <p>© 2025 Mon Portfolio - Luckt</p>
         <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions Légales</Link>
       </footer>
     </section>
