@@ -45,7 +45,7 @@ export default function Navbar() {
           <div className="p-2 bg-primary rounded-lg">
             <Code2 className="w-6 h-6 text-white" />
           </div>
-          <span className="text-foreground">Dev<span className="text-primary">Portfolio</span></span>
+          <span className="text-foreground">Mon Portfolio - <span className="text-primary">Luckt</span></span>
         </div>
 
         {/* Desktop Menu */}
