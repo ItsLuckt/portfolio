@@ -51,6 +51,7 @@ export const projects: Project[] = [
       demo: "https://www.roblox.com/games/88744853552411/French-Donations",
       github: "",
     },
+    images: ["/FrenchDonations.png"],
     color: "from-blue-500/20 to-cyan-500/20",
   },
   {
