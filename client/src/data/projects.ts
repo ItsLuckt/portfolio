@@ -42,11 +42,15 @@ export const projects: Project[] = [
     title: "French Donations",
     category: "Roblox Systems",
     description:
-      "Système de sanction automatisée innovant pour la gestion communautaire et la sécurité du jeu.",
+      "Architecture de systèmes complexes incluant modération automatisée, gestion d'événements saisonniers et inventaire dynamique.",
     longDescription:
-      "Pour le jeu French Donations, J'ai développé une solution in-game pour modérer la communauté. Le défi principal était de créer un système capable  d'appliquer des sanctions justes sans intervention humaine constante.",
-    features: ["Système de logs avancé connecté à un webhook Discord"],
-    tags: ["Luau", "Automation", "Security", "API Integration"],
+      "Sur French Donations, j'ai agi en tant que Lead System Developer. J'ai conçu un écosystème complet pour automatiser la gestion des joueurs et enrichir l'expérience utilisateur. Cela inclut un moteur de sanction autonome, un système d'inventaire optimisé pour la persistance des données et des modules événementiels interactifs.",
+    features: [
+      "Calendrier de l'Avent interactif pour un Event de Noël avec récompenses quotidiennes",
+      "Système d'inventaire compatible avec les différents mini-jeux du jeu",
+      "Logs de sanctions automatique via Webhooks Discord pour le staff",
+    ],
+    tags: ["Luau", "DataStore Service", "Automation", "UI/UX", "API Integration"],
     links: {
       demo: "https://www.roblox.com/games/88744853552411/French-Donations",
       github: "",
