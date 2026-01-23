@@ -20,7 +20,7 @@ export const projects: Project[] = [
     title: "The School RP FR",
     category: "Roblox Development",
     description:
-      "Jeu de Roleplay scolaire francophone immersif sur Roblox. Développement des systèmes de gameplay et d'interactions.",
+      "Jeu de Roleplay scolaire francophone sur Roblox. Développement des systèmes de gameplay et d'interactions.",
     longDescription:
       "The School RP FR est une expérience immersive sur Roblox qui simule la vie scolaire. En tant que développeur principal, j'ai conçu l'architecture globale du jeu pour supporter des centaines de joueurs simultanés. J'ai travaillé sur l'intégration de systèmes complexes comme la gestion des emplois du temps, les interactions entre joueurs, et un système d'économie complet.",
     features: [
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     title: "French Donations",
     category: "Roblox Systems",
     description:
-      "Architecture de systèmes complexes incluant modération automatisée, gestion d'événements saisonniers et inventaire dynamique.",
+      "Création d'évent, Système de sanction et Système d'inventaire.",
     longDescription:
       "Sur French Donations, j'ai agi en tant que Lead System Developer. J'ai conçu un écosystème complet pour automatiser la gestion des joueurs et enrichir l'expérience utilisateur. Cela inclut un moteur de sanction autonome, un système d'inventaire optimisé pour la persistance des données et des modules événementiels interactifs.",
     features: [
