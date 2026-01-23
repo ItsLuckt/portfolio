@@ -34,7 +34,7 @@ export const projects: Project[] = [
       demo: "https://www.roblox.com/games/88123962653564/The-School-RP-FR",
       github: "",
     },
-    images: ["/TheSchool.png"]
+    images: ["/TheSchool.png"],
     color: "from-red-500/20 to-orange-500/20",
   },
   {
