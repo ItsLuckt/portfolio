@@ -30,15 +30,28 @@ export default function Projects() {
               transition={{ delay: index * 0.2 }}
             >
               <Card className="h-full bg-background/50 border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col">
-                <div className={`h-48 w-full bg-gradient-to-br ${project.color} relative overflow-hidden group-hover:scale-105 transition-transform duration-500`}>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-bold text-2xl text-white/20 uppercase tracking-widest text-center px-4">{project.category}</span>
-                  </div>
+                <div className={`h-48 w-full bg-gradient-to-br ${project.color} relative overflow-hidden flex items-center justify-center`}>
+                  {project.images && project.images.length > 0 ? (
+                    <img 
+                      src={project.images[0]} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-bold text-2xl text-white/20 uppercase tracking-widest text-center px-4">
+                        {project.category}
+                      </span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
+
                 <CardHeader>
                   <CardTitle className="text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
                   <CardDescription>{project.category}</CardDescription>
                 </CardHeader>
+
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground mb-4 line-clamp-3">
                     {project.description}
@@ -54,8 +67,9 @@ export default function Projects() {
                     )}
                   </div>
                 </CardContent>
+
                 <CardFooter className="gap-3 pt-0 grid grid-cols-2">
-                   <Link href={`/project/${project.slug}`} className="w-full">
+                  <Link href={`/project/${project.slug}`} className="w-full">
                     <Button variant="secondary" className="w-full bg-secondary/50 hover:bg-secondary">
                       <Info className="w-4 h-4 mr-2" /> Détails
                     </Button>
