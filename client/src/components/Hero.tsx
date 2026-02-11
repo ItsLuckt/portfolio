@@ -30,34 +30,33 @@ export default function Hero() {
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
               Développeur Fullstack & Roblox
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
+            <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-6 tracking-tighter">
               Créer des expériences{" "}
               <span className="text-gradient">digitales</span> uniques.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-lg mb-8">
-              Je suis un développeur passionné maîtrisant Python, Lua, et Lua et
-              pleins d'autres ! Je conçois des sites web et des jeux sur Roblox.
+            <p className="text-xl text-muted-foreground max-w-lg mb-10 leading-relaxed">
+              Je suis un développeur passionné maîtrisant <span className="text-foreground font-medium">Python</span>, <span className="text-foreground font-medium">Lua</span>, et bien d'autres technologies modernes pour donner vie à vos idées.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <Button
                 size="lg"
-                className="rounded-full text-base px-8"
+                className="rounded-full text-base px-10 h-14 glow-primary hover:scale-105 transition-transform"
                 onClick={() =>
                   document
                     .querySelector("#projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Voir mes projets <ArrowRight className="ml-2 w-4 h-4" />
+                Voir mes projets <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full text-base px-8 border-white/10 hover:bg-white/5"
+                className="rounded-full text-base px-10 h-14 border-white/10 hover:bg-white/5 backdrop-blur-sm hover:scale-105 transition-transform"
                 onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
               >
-                <Github className="mr-2 w-4 h-4" /> GitHub
+                <Github className="mr-2 w-5 h-5" /> GitHub
               </Button>
             </div>
           </motion.div>
@@ -66,14 +65,14 @@ export default function Hero() {
         {/* Right side abstract visual or 3D card */}
         <motion.div
           className="hidden md:flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative w-full max-w-md aspect-square">
-            <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-            <div className="relative glass-card rounded-2xl p-8 w-full h-full flex flex-col justify-between overflow-hidden border-primary/30">
-              <div className="absolute top-0 right-0 p-32 bg-primary/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+          <div className="relative w-full max-w-md aspect-square group">
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] group-hover:bg-primary/30 transition-colors duration-500" />
+            <div className="relative glass-card rounded-3xl p-10 w-full h-full flex flex-col justify-between overflow-hidden border-primary/20 group-hover:border-primary/40 transition-all duration-500">
+              <div className="absolute top-0 right-0 p-40 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
               <div className="flex justify-between items-start">
                 <Code2Icon className="w-12 h-12 text-primary" />

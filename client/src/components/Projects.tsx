@@ -29,54 +29,51 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <Card className="h-full bg-background/50 border-white/10 overflow-hidden hover:border-primary/50 transition-all duration-300 group flex flex-col">
-                <div className={`h-48 w-full bg-gradient-to-br ${project.color} relative overflow-hidden flex items-center justify-center`}>
+              <Card className="h-full bg-secondary/30 border-white/5 overflow-hidden hover:border-primary/40 transition-all duration-500 group flex flex-col hover:shadow-[0_20px_50px_rgba(139,92,246,0.15)] hover:-translate-y-2">
+                <div className={`h-56 w-full bg-gradient-to-br ${project.color} relative overflow-hidden flex items-center justify-center`}>
                   {project.images && project.images.length > 0 ? (
                     <img 
                       src={project.images[0]} 
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-2xl text-white/20 uppercase tracking-widest text-center px-4">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                      <span className="font-bold text-3xl text-white/10 uppercase tracking-[0.2em] text-center px-6">
                         {project.category}
                       </span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
-                <CardHeader>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                  <CardDescription>{project.category}</CardDescription>
+                <CardHeader className="space-y-1">
+                  <CardTitle className="text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                  <CardDescription className="text-primary/70 font-medium tracking-wide uppercase text-[10px]">{project.category}</CardDescription>
                 </CardHeader>
 
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
+                <CardContent className="flex-grow pt-0">
+                  <p className="text-muted-foreground/80 mb-6 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2.5">
                     {project.tags.slice(0, 3).map(tag => (
-                      <Badge key={tag} variant="secondary" className="bg-secondary/50 text-xs">
+                      <Badge key={tag} variant="outline" className="bg-primary/5 border-primary/20 text-primary/90 px-2.5 py-0.5 rounded-full text-[11px]">
                         {tag}
                       </Badge>
                     ))}
-                    {project.tags.length > 3 && (
-                      <Badge variant="secondary" className="bg-secondary/50 text-xs">+{project.tags.length - 3}</Badge>
-                    )}
                   </div>
                 </CardContent>
 
-                <CardFooter className="gap-3 pt-0 grid grid-cols-2">
+                <CardFooter className="gap-4 pt-4 border-t border-white/5 p-6 grid grid-cols-2">
                   <Link href={`/project/${project.slug}`} className="w-full">
-                    <Button variant="secondary" className="w-full bg-secondary/50 hover:bg-secondary">
+                    <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 rounded-xl">
                       <Info className="w-4 h-4 mr-2" /> Détails
                     </Button>
                   </Link>
                   
                   <Button 
-                    className="w-full"
+                    className="w-full rounded-xl shadow-lg shadow-primary/10"
                     onClick={() => window.open(project.links.demo, "_blank")}
                     disabled={project.links.demo === "#"}
                   >

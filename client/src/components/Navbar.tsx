@@ -29,42 +29,43 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-white/10 py-4"
+          ? "bg-background/60 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
           : "bg-transparent py-6"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div
-          className="flex items-center gap-2 font-heading font-bold text-2xl cursor-pointer"
+          className="flex items-center gap-3 font-heading font-bold text-2xl cursor-pointer group"
           onClick={() => scrollToSection("#hero")}
         >
-          <div className="p-2 bg-primary rounded-lg">
+          <div className="p-2 bg-primary rounded-xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
             <Code2 className="w-6 h-6 text-white" />
           </div>
-          <span className="text-foreground">
-            Mon Portfolio<span className="text-primary"> Luckt</span>
+          <span className="text-foreground tracking-tight">
+            Mon Portfolio<span className="text-primary ml-1">Luckt</span>
           </span>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-muted-foreground/80 hover:text-primary transition-all duration-300 relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
           <Button
             onClick={() => scrollToSection("#contact")}
-            className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
+            className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-11 glow-primary hover:scale-105 transition-all duration-300"
           >
             Me Contacter
           </Button>
