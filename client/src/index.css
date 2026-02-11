@@ -85,7 +85,9 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-indigo-400 animate-gradient-x;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-indigo-400;
+    background-size: 200% 200%;
+    animation: gradient-x 15s ease infinite;
   }
   
   .glass-card {
@@ -99,10 +101,5 @@
   @keyframes gradient-x {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
-  }
-
-  .animate-gradient-x {
-    background-size: 200% 200%;
-    animation: gradient-x 15s ease infinite;
   }
 }
