@@ -9,21 +9,16 @@ import { useRef } from "react";
 
 const ProjectCard = ({ project, index }: { project: any, index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["0 1", "1.3 1"]
-  });
-
-  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-
+  
+  // We use standard Framer Motion animations here instead of scroll-based ones
+  // to avoid position calculation issues mentioned in the console
   return (
     <motion.div
       ref={cardRef}
-      style={{
-        scale: scaleProgess,
-        opacity: opacityProgess,
-      }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       className="flex flex-col h-full"
     >
       <Card className="h-full bg-secondary/30 border-white/5 overflow-hidden hover:border-primary/40 transition-all duration-500 group flex flex-col hover:shadow-[0_20px_50px_rgba(139,92,246,0.15)] hover:-translate-y-2 relative">
