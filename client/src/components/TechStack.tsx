@@ -10,99 +10,90 @@ import {
   SiCss3,
   SiLua,
   SiRoblox,
+  SiNodedotjs,
+  SiGit
 } from "react-icons/si";
 
-const skills = [
-  { name: "Python", icon: SiPython, color: "#3776AB", desc: "Automatisation & Backend" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: "Bases de données relationnelles" },
-  { name: "Dart", icon: SiDart, color: "#0175C2", desc: "Développement Mobile" },
-  { name: "React", icon: SiReact, color: "#61DAFB", desc: "Interfaces Web Modernes" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: "JavaScript fortement typé" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: "Logique applicative" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26", desc: "Structure Sémantique" },
-  { name: "CSS3", icon: SiCss3, color: "#1572B6", desc: "Design & Animations" },
-  { name: "Lua", icon: SiLua, color: "#000080", desc: "Scripting performant" },
-  { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: "Développement Roblox avancé" },
+const skillCategories = [
+  {
+    title: "Backend & Data",
+    skills: [
+      { name: "Python", icon: SiPython, color: "#3776AB", desc: "Création de bots Discord, scripts d'automatisation et outils d'analyse de données divers." },
+      { name: "Node.js", icon: SiNodedotjs, color: "#339933", desc: "Architecture d'APIs performantes et services backend." },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: "Conception, gestion et optimisation de bases de données relationnelles." },
+    ]
+  },
+  {
+    title: "Frontend & Web",
+    skills: [
+      { name: "React", icon: SiReact, color: "#61DAFB", desc: "Développement d'interfaces utilisateur interactives, fluides et modernes." },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: "Développement web robuste, maintenable et fortement typé." },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: "Logique applicative complexe et dynamisme web." },
+      { name: "HTML5/CSS3", icon: SiHtml5, color: "#E34F26", desc: "Structure sémantique avancée, design responsive et animations." },
+    ]
+  },
+  {
+    title: "Game Dev & Mobile",
+    skills: [
+      { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: "Développement de systèmes de jeu complexes et mécaniques avancées sur Roblox." },
+      { name: "Lua", icon: SiLua, color: "#000080", desc: "Développement système, scripting et intégrations pour jeux vidéo." },
+      { name: "Dart", icon: SiDart, color: "#0175C2", desc: "Création d'applications mobiles performantes multi-plateformes." },
+    ]
+  },
+  {
+    title: "Outils",
+    skills: [
+      { name: "Git", icon: SiGit, color: "#F05032", desc: "Versionning, collaboration efficace et gestion de code source." },
+    ]
+  }
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
 
 export default function TechStack() {
   return (
-    <section
-      id="skills"
-      className="py-24 bg-background relative overflow-hidden"
-    >
-      {/* Decorative gradients */}
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="skills" className="py-24 bg-background border-b border-border/50">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-20"
+          className="max-w-3xl mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-            Mes Compétences
-          </h2>
-          <div className="h-1.5 w-24 bg-primary mx-auto rounded-full" />
-          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
-            Une boîte à outils complète pour donner vie à vos idées, du web au
-            gaming.
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Stack Technique</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Les technologies que j'utilise au quotidien.</h3>
+          <p className="text-lg text-muted-foreground">
+            Une sélection d'outils et de langages maîtrisés pour concevoir, développer et déployer des applications complètes.
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {skills.map((skill) => (
-            <motion.div
-              key={skill.name}
-              variants={itemVariants}
-              className="group relative p-6 rounded-3xl glass-card hover:border-primary/40 transition-all duration-500 flex flex-col items-center justify-center gap-4 cursor-default overflow-hidden text-center h-full"
-              whileHover={{ y: -5 }}
+        <div className="grid md:grid-cols-2 gap-12">
+          {skillCategories.map((category, idx) => (
+            <motion.div 
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-[0.15] transition-opacity duration-500 blur-xl"
-                style={{ backgroundColor: skill.color }}
-              />
-              
-              <skill.icon
-                className="w-14 h-14 transition-all duration-500 group-hover:scale-110 drop-shadow-sm relative z-10"
-                style={{ color: skill.color }}
-              />
-              <div className="relative z-10 flex flex-col items-center">
-                <span className="font-bold text-lg tracking-wide text-foreground/90 group-hover:text-foreground transition-colors">{skill.name}</span>
-                <span className="text-xs font-medium text-muted-foreground mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                  {skill.desc}
-                </span>
+              <h4 className="text-lg font-medium border-b border-border/50 pb-3 mb-6 text-foreground/80">{category.title}</h4>
+              <div className="flex flex-col gap-4">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-start gap-4 p-4 rounded-xl border border-border bg-muted/30 hover:bg-muted/80 hover:border-primary/30 transition-colors group"
+                  >
+                    <div className="mt-1 p-2 rounded-md bg-background border border-border/50 group-hover:scale-110 transition-transform">
+                      <skill.icon className="w-6 h-6" style={{ color: skill.color }} />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-foreground/90 block mb-1">{skill.name}</span>
+                      <span className="text-sm text-muted-foreground leading-relaxed">{skill.desc}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
