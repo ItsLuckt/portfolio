@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Accueil", href: "#hero" },
+    { name: "Services", href: "#services" },
     { name: "Expérience", href: "#experience" },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
@@ -32,7 +34,7 @@ export default function Navbar() {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/60 backdrop-blur-xl border-b border-white/5 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+          ? "bg-background/60 backdrop-blur-xl border-b border-border py-3 shadow-sm"
           : "bg-transparent py-6"
       }`}
       initial={{ y: -100 }}
@@ -45,7 +47,7 @@ export default function Navbar() {
           onClick={() => scrollToSection("#hero")}
         >
           <div className="p-2 bg-primary rounded-xl shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform duration-300">
-            <Code2 className="w-6 h-6 text-white" />
+            <Code2 className="w-6 h-6 text-primary-foreground" />
           </div>
           <span className="text-foreground tracking-tight">
             Mon Portfolio<span className="text-primary ml-1">Luckt</span>
@@ -53,38 +55,45 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="text-sm font-medium text-muted-foreground/80 hover:text-primary transition-all duration-300 relative group"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
-          <Button
-            onClick={() => scrollToSection("#contact")}
-            className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-11 glow-primary hover:scale-105 transition-all duration-300"
-          >
-            Me Contacter
-          </Button>
+          
+          <div className="flex items-center gap-4 border-l border-border pl-4">
+            <ThemeToggle />
+            <Button
+              onClick={() => scrollToSection("#contact")}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-11 glow-primary hover:scale-105 transition-all duration-300"
+            >
+              Me Contacter
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            className="text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
-          className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl"
+          className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border p-6 flex flex-col gap-4 shadow-2xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -99,7 +108,7 @@ export default function Navbar() {
           ))}
           <Button
             onClick={() => scrollToSection("#contact")}
-            className="w-full mt-4"
+            className="w-full mt-4 h-12 text-lg"
           >
             Me Contacter
           </Button>

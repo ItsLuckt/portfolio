@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   SiPython,
-  SiPostgresql,
+  SiMysql,
   SiDart,
   SiReact,
   SiTypescript,
@@ -13,16 +13,16 @@ import {
 } from "react-icons/si";
 
 const skills = [
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "SQL", icon: SiPostgresql, color: "#336791" },
-  { name: "Dart", icon: SiDart, color: "#0175C2" },
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
-  { name: "CSS3", icon: SiCss3, color: "#1572B6" },
-  { name: "Lua", icon: SiLua, color: "#000080" },
-  { name: "Luau", icon: SiRoblox, color: "#FFFFFF" },
+  { name: "Python", icon: SiPython, color: "#3776AB", desc: "Automatisation & Backend" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: "Bases de données relationnelles" },
+  { name: "Dart", icon: SiDart, color: "#0175C2", desc: "Développement Mobile" },
+  { name: "React", icon: SiReact, color: "#61DAFB", desc: "Interfaces Web Modernes" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: "JavaScript fortement typé" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: "Logique applicative" },
+  { name: "HTML5", icon: SiHtml5, color: "#E34F26", desc: "Structure Sémantique" },
+  { name: "CSS3", icon: SiCss3, color: "#1572B6", desc: "Design & Animations" },
+  { name: "Lua", icon: SiLua, color: "#000080", desc: "Scripting performant" },
+  { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: "Développement Roblox avancé" },
 ];
 
 const containerVariants = {
@@ -71,7 +71,7 @@ export default function TechStack() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -81,20 +81,25 @@ export default function TechStack() {
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              className="group relative p-8 rounded-3xl bg-secondary/20 border border-white/5 hover:border-primary/40 hover:bg-secondary/40 transition-all duration-500 flex flex-col items-center justify-center gap-6 cursor-default overflow-hidden"
+              className="group relative p-6 rounded-3xl glass-card hover:border-primary/40 transition-all duration-500 flex flex-col items-center justify-center gap-4 cursor-default overflow-hidden text-center h-full"
               whileHover={{ y: -5 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"
+                className="absolute inset-0 opacity-0 group-hover:opacity-[0.15] transition-opacity duration-500 blur-xl"
                 style={{ backgroundColor: skill.color }}
               />
               
               <skill.icon
-                className="w-16 h-16 transition-all duration-500 group-hover:scale-110 drop-shadow-lg relative z-10"
+                className="w-14 h-14 transition-all duration-500 group-hover:scale-110 drop-shadow-sm relative z-10"
                 style={{ color: skill.color }}
               />
-              <span className="font-semibold text-lg tracking-wide text-foreground/90 group-hover:text-foreground relative z-10">{skill.name}</span>
+              <div className="relative z-10 flex flex-col items-center">
+                <span className="font-bold text-lg tracking-wide text-foreground/90 group-hover:text-foreground transition-colors">{skill.name}</span>
+                <span className="text-xs font-medium text-muted-foreground mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                  {skill.desc}
+                </span>
+              </div>
             </motion.div>
           ))}
         </motion.div>
