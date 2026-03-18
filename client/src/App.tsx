@@ -7,6 +7,8 @@ import Home from "@/pages/Home";
 import Legal from "@/pages/Legal";
 import ProjectDetail from "@/pages/ProjectDetail";
 import NotFound from "@/pages/not-found";
+import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 
 function Router() {
   return (
@@ -23,6 +25,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <Preloader />
+        <CustomCursor />
         <Toaster />
         <Router />
       </TooltipProvider>

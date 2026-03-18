@@ -47,44 +47,54 @@ export default function TechStack() {
   return (
     <section
       id="skills"
-      className="py-20 bg-background relative overflow-hidden"
+      className="py-24 bg-background relative overflow-hidden"
     >
-      <div className="container mx-auto px-6">
+      {/* Decorative gradients */}
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
             Mes Compétences
           </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+          <div className="h-1.5 w-24 bg-primary mx-auto rounded-full" />
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
             Une boîte à outils complète pour donner vie à vos idées, du web au
             gaming.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              className="group p-6 rounded-2xl bg-secondary/30 border border-white/5 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300 flex flex-col items-center justify-center gap-4 cursor-default"
-              whileHover={{ scale: 1.05 }}
+              className="group relative p-8 rounded-3xl bg-secondary/20 border border-white/5 hover:border-primary/40 hover:bg-secondary/40 transition-all duration-500 flex flex-col items-center justify-center gap-6 cursor-default overflow-hidden"
+              whileHover={{ y: -5 }}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"
+                style={{ backgroundColor: skill.color }}
+              />
+              
               <skill.icon
-                className="w-12 h-12 transition-transform duration-300"
+                className="w-16 h-16 transition-all duration-500 group-hover:scale-110 drop-shadow-lg relative z-10"
                 style={{ color: skill.color }}
               />
-              <span className="font-medium text-lg">{skill.name}</span>
+              <span className="font-semibold text-lg tracking-wide text-foreground/90 group-hover:text-foreground relative z-10">{skill.name}</span>
             </motion.div>
           ))}
         </motion.div>
