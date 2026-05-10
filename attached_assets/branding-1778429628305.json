@@ -1,0 +1,152 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Builder Sans",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#494D5A",
+    "secondary": "#6A6F81",
+    "accent": "#335FFF",
+    "background": "#000000",
+    "textPrimary": "#000000",
+    "link": "#335FFF"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Builder Sans",
+      "heading": "Builder Sans"
+    },
+    "fontStacks": {
+      "heading": [
+        "Builder Sans",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        "Lucida Grande",
+        "sans-serif"
+      ],
+      "body": [
+        "Builder Sans",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        "Lucida Grande",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Builder Sans",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        "Lucida Grande",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "16px",
+      "h2": "20px",
+      "body": "16px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 6,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "background": "#020306",
+      "textColor": "#202227",
+      "borderColor": "#030409",
+      "borderRadius": "8px",
+      "borderRadiusCorners": {
+        "topLeft": "8px",
+        "topRight": "8px",
+        "bottomRight": "8px",
+        "bottomLeft": "8px"
+      },
+      "shadow": "none"
+    },
+    "buttonPrimary": {
+      "background": "#335FFF",
+      "textColor": "#F7F7F8",
+      "borderRadius": "8px",
+      "borderRadiusCorners": {
+        "topLeft": "8px",
+        "topRight": "8px",
+        "bottomRight": "8px",
+        "bottomLeft": "8px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#030409",
+      "textColor": "#202227",
+      "borderRadius": "9999px",
+      "borderRadiusCorners": {
+        "topLeft": "9999px",
+        "topRight": "9999px",
+        "bottomRight": "9999px",
+        "bottomLeft": "9999px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "https://images.rbxcdn.com/7c5fe83dffa97250aaddd54178900ea7.png",
+    "ogImage": "File saved at: attached_assets/ogImage.png",
+    "logoHref": "File saved at: attached_assets/logoHref.html"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Selected #1 because it is visible, located in the header, and links to the homepage, which are strong indicators of the main brand logo for Roblox.",
+    "confidence": 0.9,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Add friend",
+      "reasoning": "Button #0 has a vibrant blue background (#335FFF), which is the accent color, making it stand out as the primary call-to-action. The text 'Add friend' is action-oriented, aligning with typical primary CTA characteristics."
+    },
+    "secondary": {
+      "index": 1,
+      "text": "297 Followers",
+      "reasoning": "Button #1 has a different background color (#030409) and serves a secondary function ('297 Followers'), making it suitable as a secondary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "playful",
+    "energy": "high",
+    "targetAudience": "gamers, young audience"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 1,
+        "selectedLogoReasoning": "Selected #1 because it is visible, located in the header, and links to the homepage, which are strong indicators of the main brand logo for Roblox.",
+        "confidence": 0.9
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github, Code2, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiRoblox } from "react-icons/si";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -41,7 +42,7 @@ export default function Hero() {
             De la conception architecturale à l'implémentation d'interfaces modernes avec <span className="font-semibold text-foreground">React</span>, <span className="font-semibold text-foreground">Python</span> et <span className="font-semibold text-foreground">Node.js</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full sm:w-auto mt-4">
             <Button
               size="lg"
               className="rounded-lg text-base px-8 h-12 hover:scale-[1.02] transition-transform"
@@ -60,6 +61,14 @@ export default function Hero() {
               onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
             >
               <Github className="mr-2 w-4 h-4" /> Profil GitHub
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-lg text-base px-8 h-12 bg-background/50 backdrop-blur-sm hover:bg-blue-500/20 border-blue-500/30 hover:border-blue-500/50 hover:text-blue-500 hover:scale-[1.02] transition-all"
+              onClick={() => window.open("https://www.roblox.com/users/454458772/profile", "_blank")}
+            >
+              <SiRoblox className="mr-2 w-4 h-4" /> Profil Roblox
             </Button>
           </div>
         </motion.div>
