@@ -1,24 +1,32 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X, Hexagon, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import { useTranslation } from "react-i18next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const { t, i18n } = useTranslation();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
   });
 
   const navLinks = [
-    { name: "Expertise", href: "#services" },
-    { name: "Parcours", href: "#experience" },
-    { name: "Stack", href: "#skills" },
-    { name: "Réalisations", href: "#projects" },
+    { name: t('nav.expertise'), href: "#services" },
+    { name: t('nav.experience'), href: "#experience" },
+    { name: t('nav.stack'), href: "#skills" },
+    { name: t('nav.projects'), href: "#projects" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -27,6 +35,10 @@ export default function Navbar() {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -78,25 +90,55 @@ export default function Navbar() {
           </div>
           
           <motion.div 
-            className="flex items-center gap-4 border-l border-border/50 pl-6 ml-2"
+            className="flex items-center gap-3 border-l border-border/50 pl-6 ml-2"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7, duration: 0.5 }}
           >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="w-9 h-9">
+                  <Languages className="w-4 h-4 text-muted-foreground" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => changeLanguage('fr')}>
+                  Français
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage('en')}>
+                  English
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <ThemeToggle />
             <Button
               onClick={() => scrollToSection("#contact")}
               variant="default"
               className="rounded-md px-5 h-9 font-medium overflow-hidden relative group"
             >
-              <span className="relative z-10">Contact</span>
+              <span className="relative z-10">{t('nav.contact')}</span>
               <span className="absolute inset-0 bg-primary-foreground/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
             </Button>
           </motion.div>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="w-9 h-9">
+                <Languages className="w-4 h-4 text-muted-foreground" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => changeLanguage('fr')}>
+                Français
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('en')}>
+                English
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <ThemeToggle />
           <button
             className="text-foreground p-2 -mr-2 relative z-50"
@@ -165,7 +207,7 @@ export default function Navbar() {
                 size="lg"
                 className="w-full h-14 text-lg rounded-xl"
               >
-                Me Contacter
+                {t('nav.contact_me')}
               </Button>
             </motion.div>
           </motion.div>

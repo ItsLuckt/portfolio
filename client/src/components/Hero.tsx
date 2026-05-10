@@ -2,11 +2,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Github, Code2, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiRoblox } from "react-icons/si";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function Hero() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const { t } = useTranslation();
 
   return (
     <section
@@ -29,17 +31,19 @@ export default function Hero() {
             transition={{ delay: 0.1 }}
           >
             <Terminal className="w-4 h-4 text-primary" />
-            <span>Développeur FullStack, Mobile & Jeux</span>
+            <span>{t('hero.badge')}</span>
           </motion.div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
-            Dév FullStack et d'applications mobiles <br className="hidden lg:block"/>
-            <span className="text-gradient">et de jeux.</span>
+            {t('hero.title_1')} <br className="hidden lg:block"/>
+            <span className="text-gradient">{t('hero.title_2')}</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-            Je suis spécialisé dans le web et les bases de données. 
-            De la conception architecturale à l'implémentation d'interfaces modernes avec <span className="font-semibold text-foreground">React</span>, <span className="font-semibold text-foreground">Python</span> et <span className="font-semibold text-foreground">Node.js</span>.
+            <Trans i18nKey="hero.description">
+              Je suis spécialisé dans le web et les bases de données. 
+              De la conception architecturale à l'implémentation d'interfaces modernes avec <span className="font-semibold text-foreground">React</span>, <span className="font-semibold text-foreground">Python</span> et <span className="font-semibold text-foreground">Node.js</span>.
+            </Trans>
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 w-full sm:w-auto mt-4">
@@ -52,7 +56,7 @@ export default function Hero() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Découvrir mes travaux <ArrowRight className="ml-2 w-4 h-4" />
+              {t('hero.btn_projects')} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
             <Button
               variant="outline"
@@ -60,7 +64,7 @@ export default function Hero() {
               className="rounded-lg text-base px-8 h-12 bg-background/50 backdrop-blur-sm hover:bg-accent/50 hover:scale-[1.02] transition-all"
               onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
             >
-              <Github className="mr-2 w-4 h-4" /> Profil GitHub
+              <Github className="mr-2 w-4 h-4" /> {t('hero.btn_github')}
             </Button>
             <Button
               variant="outline"
@@ -68,7 +72,7 @@ export default function Hero() {
               className="rounded-lg text-base px-8 h-12 bg-background/50 backdrop-blur-sm hover:bg-blue-500/20 border-blue-500/30 hover:border-blue-500/50 hover:text-blue-500 hover:scale-[1.02] transition-all"
               onClick={() => window.open("https://www.roblox.com/users/454458772/profile", "_blank")}
             >
-              <SiRoblox className="mr-2 w-4 h-4" /> Profil Roblox
+              <SiRoblox className="mr-2 w-4 h-4" /> {t('hero.btn_roblox')}
             </Button>
           </div>
         </motion.div>
