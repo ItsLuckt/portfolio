@@ -5,7 +5,7 @@ const experiences = [
     year: "2025 - Présent",
     role: "Créateur de Jeux & Développeur Luau",
     company: "Roblox",
-    description: "Développement de systèmes de jeu complexes, d'interfaces utilisateur immersives et de mécaniques multijoueurs poussées sur la plateforme Roblox.",
+    description: "Développement de systèmes de jeu complexes, d'interfaces utilisateur immersives et de mécaniques multijoueurs poussées sur la plateforme Roblox. Contribution majeure au jeu French Donations (plus de 2,5 millions de visites).",
   },
   {
     year: "2023 - Présent",
