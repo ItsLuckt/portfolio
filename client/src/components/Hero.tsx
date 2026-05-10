@@ -22,6 +22,19 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-4xl flex flex-col items-center"
         >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="mb-8 w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20 shadow-[0_0_40px_rgba(239,68,68,0.2)]"
+          >
+            <img 
+              src="https://tr.rbxcdn.com/30DAY-Avatar-8971640538441A88601841642E81E4CC-Png/720/720/Avatar/Png/noFilter" 
+              alt="Luckt Avatar Roblox"
+              className="w-full h-full object-cover bg-secondary"
+            />
+          </motion.div>
+
           <motion.div 
             className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-secondary/50 border border-border text-foreground text-sm font-medium mb-6 backdrop-blur-sm"
             initial={{ opacity: 0, y: 10 }}
