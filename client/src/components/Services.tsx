@@ -1,34 +1,37 @@
 import { motion } from "framer-motion";
 import { Code2, Server, Gamepad2, Blocks } from "lucide-react";
-
-const services = [
-  {
-    title: "Ingénierie Logicielle",
-    description: "Architecture et développement d'applications robustes, de l'API backend à l'interface utilisateur frontend.",
-    icon: Code2,
-    tech: "React, Node.js, TypeScript"
-  },
-  {
-    title: "Automatisation & Backend",
-    description: "Conception de systèmes backend scalables, scripts d'automatisation et traitement de données complexes.",
-    icon: Server,
-    tech: "Python, MySQL, API REST"
-  },
-  {
-    title: "Développement Roblox",
-    description: "Création d'expériences interactives performantes sur Roblox avec des mécaniques de jeu avancées.",
-    icon: Gamepad2,
-    tech: "Luau, Roblox Studio"
-  },
-  {
-    title: "Architecture Système",
-    description: "Modélisation de bases de données et conception d'architectures logicielles maintenables et évolutives.",
-    icon: Blocks,
-    tech: "System Design, CI/CD"
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function Services() {
+  const { t } = useTranslation();
+  
+  const services = [
+    {
+      title: t('services.items.0.title'),
+      description: t('services.items.0.desc'),
+      icon: Code2,
+      tech: t('services.items.0.tech')
+    },
+    {
+      title: t('services.items.1.title'),
+      description: t('services.items.1.desc'),
+      icon: Server,
+      tech: t('services.items.1.tech')
+    },
+    {
+      title: t('services.items.2.title'),
+      description: t('services.items.2.desc'),
+      icon: Gamepad2,
+      tech: t('services.items.2.tech')
+    },
+    {
+      title: t('services.items.3.title'),
+      description: t('services.items.3.desc'),
+      icon: Blocks,
+      tech: t('services.items.3.tech')
+    }
+  ];
+
   return (
     <section id="services" className="py-24 relative bg-muted/30 border-y border-border/50">
       <div className="container mx-auto px-6 relative z-10">
@@ -38,10 +41,10 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Domaines d'Expertise</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Des solutions techniques adaptées à vos défis complexes.</h3>
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('services.badge')}</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('services.title')}</h3>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Mon approche combine rigueur architecturale et maîtrise des technologies modernes pour délivrer des logiciels performants, sécurisés et évolutifs.
+            {t('services.desc')}
           </p>
         </motion.div>
 

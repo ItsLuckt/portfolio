@@ -1,27 +1,30 @@
 import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    year: "2025 - Présent",
-    role: "Créateur de Jeux & Développeur Luau",
-    company: "Roblox",
-    description: "Développement de systèmes de jeu complexes, d'interfaces utilisateur immersives et de mécaniques multijoueurs poussées sur la plateforme Roblox. Contribution majeure au jeu French Donations (plus de 2,5 millions de visites).",
-  },
-  {
-    year: "2023 - Présent",
-    role: "Développeur Fullstack Indépendant",
-    company: "Freelance",
-    description: "Création d'applications web modernes avec React, Node.js et MySQL. Conception d'interfaces utilisateur fluides, sécurisées et optimisées pour la performance.",
-  },
-  {
-    year: "2020 - 2022",
-    role: "Développeur Python",
-    company: "Projets Personnels",
-    description: "Création de bots Discord performants, de scripts d'automatisation et d'outils d'analyse de données divers en utilisant Python.",
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function Experience() {
+  const { t } = useTranslation();
+  
+  const experiences = [
+    {
+      year: t('experience.items.0.year'),
+      role: t('experience.items.0.role'),
+      company: t('experience.items.0.company'),
+      description: t('experience.items.0.desc'),
+    },
+    {
+      year: t('experience.items.1.year'),
+      role: t('experience.items.1.role'),
+      company: t('experience.items.1.company'),
+      description: t('experience.items.1.desc'),
+    },
+    {
+      year: t('experience.items.2.year'),
+      role: t('experience.items.2.role'),
+      company: t('experience.items.2.company'),
+      description: t('experience.items.2.desc'),
+    }
+  ];
+
   return (
     <section id="experience" className="py-24 relative bg-background border-b border-border/50">
       <div className="container mx-auto px-6 relative z-10">
@@ -31,10 +34,10 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Expérience</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Mon parcours professionnel.</h3>
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('experience.badge')}</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('experience.title')}</h3>
           <p className="text-lg text-muted-foreground">
-            Une évolution guidée par la passion de la résolution de problèmes et la création d'expériences numériques de qualité.
+            {t('experience.desc')}
           </p>
         </motion.div>
 

@@ -13,42 +13,45 @@ import {
   SiNodedotjs,
   SiGit
 } from "react-icons/si";
-
-const skillCategories = [
-  {
-    title: "Backend & Data",
-    skills: [
-      { name: "Python", icon: SiPython, color: "#3776AB", desc: "Création de bots Discord, scripts d'automatisation et outils d'analyse de données divers." },
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933", desc: "Architecture d'APIs performantes et services backend." },
-      { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: "Conception, gestion et optimisation de bases de données relationnelles." },
-    ]
-  },
-  {
-    title: "Frontend & Web",
-    skills: [
-      { name: "React", icon: SiReact, color: "#61DAFB", desc: "Développement d'interfaces utilisateur interactives, fluides et modernes." },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: "Développement web robuste, maintenable et fortement typé." },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: "Logique applicative complexe et dynamisme web." },
-      { name: "HTML5/CSS3", icon: SiHtml5, color: "#E34F26", desc: "Structure sémantique avancée, design responsive et animations." },
-    ]
-  },
-  {
-    title: "Game Dev & Mobile",
-    skills: [
-      { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: "Développement de systèmes de jeu complexes et mécaniques avancées sur Roblox." },
-      { name: "Lua", icon: SiLua, color: "#000080", desc: "Développement système, scripting et intégrations pour jeux vidéo." },
-      { name: "Dart", icon: SiDart, color: "#0175C2", desc: "Création d'applications mobiles performantes multi-plateformes." },
-    ]
-  },
-  {
-    title: "Outils",
-    skills: [
-      { name: "Git", icon: SiGit, color: "#F05032", desc: "Versionning, collaboration efficace et gestion de code source." },
-    ]
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function TechStack() {
+  const { t } = useTranslation();
+  
+  const skillCategories = [
+    {
+      title: t('techstack.categories.0.title'),
+      skills: [
+        { name: "Python", icon: SiPython, color: "#3776AB", desc: t('techstack.categories.0.skills.0.desc') },
+        { name: "Node.js", icon: SiNodedotjs, color: "#339933", desc: t('techstack.categories.0.skills.1.desc') },
+        { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: t('techstack.categories.0.skills.2.desc') },
+      ]
+    },
+    {
+      title: t('techstack.categories.1.title'),
+      skills: [
+        { name: "React", icon: SiReact, color: "#61DAFB", desc: t('techstack.categories.1.skills.0.desc') },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: t('techstack.categories.1.skills.1.desc') },
+        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: t('techstack.categories.1.skills.2.desc') },
+        { name: "HTML5/CSS3", icon: SiHtml5, color: "#E34F26", desc: t('techstack.categories.1.skills.3.desc') },
+      ]
+    },
+    {
+      title: t('techstack.categories.2.title'),
+      skills: [
+        { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: t('techstack.categories.2.skills.0.desc') },
+        { name: "Lua", icon: SiLua, color: "#000080", desc: t('techstack.categories.2.skills.1.desc') },
+        { name: "Dart", icon: SiDart, color: "#0175C2", desc: t('techstack.categories.2.skills.2.desc') },
+      ]
+    },
+    {
+      title: t('techstack.categories.3.title'),
+      skills: [
+        { name: "Git", icon: SiGit, color: "#F05032", desc: t('techstack.categories.3.skills.0.desc') },
+      ]
+    }
+  ];
+
   return (
     <section id="skills" className="py-24 bg-background border-b border-border/50">
       <div className="container mx-auto px-6">
@@ -58,10 +61,10 @@ export default function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Stack Technique</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Les technologies que j'utilise au quotidien.</h3>
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('techstack.badge')}</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('techstack.title')}</h3>
           <p className="text-lg text-muted-foreground">
-            Une sélection d'outils et de langages maîtrisés pour concevoir, développer et déployer des applications complètes.
+            {t('techstack.desc')}
           </p>
         </motion.div>
 

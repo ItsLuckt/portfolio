@@ -5,8 +5,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-24 bg-muted/30 relative">
       <div className="container mx-auto px-6 relative z-10">
@@ -16,10 +19,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Contact</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Démarrons un projet ensemble.</h3>
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('contact.badge')}</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('contact.title')}</h3>
           <p className="text-lg text-muted-foreground">
-            Que ce soit pour une opportunité de collaboration, une question technique ou simplement pour échanger, n'hésitez pas à me contacter.
+            {t('contact.desc')}
           </p>
         </motion.div>
 
@@ -58,8 +61,8 @@ export default function Contact() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Localisation</h4>
-                  <p className="text-lg font-medium text-foreground">Lille, France</p>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('contact.location')}</h4>
+                  <p className="text-lg font-medium text-foreground">{t('contact.city')}</p>
                 </div>
               </div>
             </div>
@@ -69,7 +72,7 @@ export default function Contact() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              <span className="text-sm font-medium text-primary">Disponible pour de nouveaux défis</span>
+              <span className="text-sm font-medium text-primary">{t('contact.status')}</span>
             </div>
           </motion.div>
 
@@ -83,32 +86,32 @@ export default function Contact() {
           >
             <div className="grid md:grid-cols-2 gap-5">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground/80">Nom complet</label>
-                <Input placeholder="Votre nom" className="h-12 bg-muted/50 border-border" />
+                <label className="text-sm font-medium text-foreground/80">{t('contact.form.name')}</label>
+                <Input placeholder={t('contact.form.name_placeholder')} className="h-12 bg-muted/50 border-border" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground/80">Email</label>
-                <Input placeholder="votre@email.com" type="email" className="h-12 bg-muted/50 border-border" />
+                <label className="text-sm font-medium text-foreground/80">{t('contact.form.email')}</label>
+                <Input placeholder={t('contact.form.email_placeholder')} type="email" className="h-12 bg-muted/50 border-border" />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground/80">Sujet</label>
-              <Input placeholder="Objet de votre message" className="h-12 bg-muted/50 border-border" />
+              <label className="text-sm font-medium text-foreground/80">{t('contact.form.subject')}</label>
+              <Input placeholder={t('contact.form.subject_placeholder')} className="h-12 bg-muted/50 border-border" />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground/80">Message</label>
-              <Textarea placeholder="Décrivez votre projet ou votre besoin..." className="min-h-[150px] bg-muted/50 border-border resize-none" />
+              <label className="text-sm font-medium text-foreground/80">{t('contact.form.message')}</label>
+              <Textarea placeholder={t('contact.form.message_placeholder')} className="min-h-[150px] bg-muted/50 border-border resize-none" />
             </div>
             <Button type="submit" size="lg" className="w-full h-12 text-base font-medium mt-2">
-              Envoyer le message <Send className="w-4 h-4 ml-2" />
+              {t('contact.form.submit')} <Send className="w-4 h-4 ml-2" />
             </Button>
           </motion.form>
         </div>
       </div>
 
       <footer className="mt-24 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center px-6 container mx-auto gap-4 pb-8">
-        <p className="font-medium">© {new Date().getFullYear()} Luckt. Tous droits réservés.</p>
-        <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions Légales</Link>
+        <p className="font-medium">© {new Date().getFullYear()} Luckt. {t('contact.footer')}</p>
+        <Link href="/mentions-legales" className="hover:text-primary transition-colors">{t('contact.legal')}</Link>
       </footer>
     </section>
   );

@@ -3,8 +3,9 @@ import { ExternalLink, Github, ArrowUpRight, FolderGit2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
+import { useTranslation } from "react-i18next";
 
-const ProjectCard = ({ project, index }: { project: any, index: number }) => {
+const ProjectCard = ({ project, index, t }: { project: any, index: number, t: any }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -59,7 +60,7 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
               onClick={() => window.open(project.links.demo, "_blank")}
             >
               <ExternalLink className="w-4 h-4 mr-2" /> 
-              Visiter le projet
+              {t('projects.btn_visit')}
             </Button>
           )}
           {project.links.github && project.links.github !== "#" && (
@@ -69,7 +70,7 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
               onClick={() => window.open(project.links.github, "_blank")}
             >
               <Github className="w-4 h-4 mr-2" /> 
-              Code source
+              {t('projects.btn_code')}
             </Button>
           )}
         </div>
@@ -79,6 +80,8 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
 };
 
 export default function Projects() {
+  const { t } = useTranslation();
+
   return (
     <section id="projects" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -88,16 +91,16 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Réalisations</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Projets sélectionnés.</h3>
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('projects.badge')}</h2>
+          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('projects.title')}</h3>
           <p className="text-lg text-muted-foreground">
-            Aperçu de mes travaux récents, démontrant ma capacité à concevoir et livrer des solutions logicielles de bout en bout.
+            {t('projects.desc')}
           </p>
         </motion.div>
 
         <div className="flex flex-col">
           {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+            <ProjectCard key={project.slug} project={project} index={index} t={t} />
           ))}
         </div>
       </div>
