@@ -90,7 +90,7 @@
     @apply border-border selection:bg-primary/30 selection:text-primary-foreground;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground scroll-smooth;
+    @apply font-sans antialiased bg-transparent text-foreground scroll-smooth;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
@@ -103,7 +103,7 @@
   }
   
   .glass-card {
-    @apply bg-background/80 backdrop-blur-xl border border-border shadow-sm transition-all duration-300;
+    @apply bg-transparent/80 backdrop-blur-xl border border-border shadow-sm transition-all duration-300;
   }
 
   .glow-primary {

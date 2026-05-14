@@ -81,7 +81,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-3 space-y-5 bg-background p-8 rounded-2xl border border-border shadow-sm"
+            className="lg:col-span-3 space-y-5 bg-transparent p-8 rounded-2xl border border-border shadow-sm"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="grid md:grid-cols-2 gap-5">

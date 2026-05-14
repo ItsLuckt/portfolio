@@ -26,7 +26,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 relative bg-background border-b border-border/50">
+    <section id="experience" className="py-24 relative bg-transparent border-b border-border/50">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
           className="max-w-3xl mb-16"

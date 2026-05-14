@@ -53,7 +53,7 @@ export default function TechStack() {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-background border-b border-border/50">
+    <section id="skills" className="py-24 bg-transparent border-b border-border/50">
       <div className="container mx-auto px-6">
         <motion.div
           className="max-w-3xl mb-16"
@@ -84,7 +84,7 @@ export default function TechStack() {
                     key={skill.name}
                     className="flex items-start gap-4 p-4 rounded-xl border border-border bg-muted/30 hover:bg-muted/80 hover:border-primary/30 transition-colors group"
                   >
-                    <div className="mt-1 p-2 rounded-md bg-background border border-border/50 group-hover:scale-110 transition-transform">
+                    <div className="mt-1 p-2 rounded-md bg-transparent border border-border/50 group-hover:scale-110 transition-transform">
                       <skill.icon className="w-6 h-6" style={{ color: skill.color }} />
                     </div>
                     <div>

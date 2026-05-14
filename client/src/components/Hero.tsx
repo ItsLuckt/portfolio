@@ -15,7 +15,7 @@ export default function Hero() {
       id="hero"
       className="relative flex flex-col items-center justify-center overflow-x-hidden pt-32 pb-24 min-h-screen"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background/50 to-transparent"></div>
       
       <div className="container mx-auto px-6 relative z-20 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <motion.div

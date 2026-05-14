@@ -64,10 +64,10 @@ export default function Navbar() {
             animate={{ rotate: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
           >
-            <Hexagon className="w-6 h-6 text-primary" />
+            <Hexagon className="w-6 h-6 text-blue-500" />
           </motion.div>
           <span className="text-foreground tracking-tight">
-            <span className="text-primary">Luckt</span>
+            <span className="text-blue-500">Luckt</span>
           </span>
         </motion.div>
 

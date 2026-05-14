@@ -28,7 +28,7 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
           </div>
         )}
         <div className="absolute top-4 left-4">
-          <Badge variant="secondary" className="bg-background/80 backdrop-blur-md font-medium">
+          <Badge variant="secondary" className="bg-transparent/80 backdrop-blur-md font-medium">
             {project.category}
           </Badge>
         </div>
@@ -83,7 +83,7 @@ export default function Projects() {
   const { t } = useTranslation();
 
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-24 bg-transparent">
       <div className="container mx-auto px-6">
         <motion.div 
           className="max-w-3xl mb-16"

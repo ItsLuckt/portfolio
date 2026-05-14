@@ -56,7 +56,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-background border border-border rounded-xl p-8 hover:border-primary/50 transition-colors duration-300 group shadow-sm"
+              className="bg-transparent border border-border rounded-xl p-8 hover:border-primary/50 transition-colors duration-300 group shadow-sm"
             >
               <div className="flex flex-col h-full">
                 <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/10 text-primary w-fit group-hover:scale-105 transition-transform">
