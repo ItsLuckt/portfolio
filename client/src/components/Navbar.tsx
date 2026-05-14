@@ -108,6 +108,9 @@ export default function Navbar() {
                 <DropdownMenuItem onClick={() => changeLanguage('en')}>
                   English
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage('de')}>
+                  Deutsch
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <ThemeToggle />
@@ -136,6 +139,9 @@ export default function Navbar() {
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => changeLanguage('en')}>
                 English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('de')}>
+                Deutsch
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

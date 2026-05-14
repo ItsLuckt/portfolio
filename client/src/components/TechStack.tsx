@@ -14,6 +14,7 @@ import {
   SiGit
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
+import { Languages } from "lucide-react";
 
 export default function TechStack() {
   const { t } = useTranslation();
@@ -48,6 +49,14 @@ export default function TechStack() {
       title: t('techstack.categories.3.title'),
       skills: [
         { name: "Git", icon: SiGit, color: "#F05032", desc: t('techstack.categories.3.skills.0.desc') },
+      ]
+    },
+    {
+      title: t('techstack.categories.4.title'),
+      skills: [
+        { name: t('techstack.categories.4.skills.0.name'), icon: Languages, color: "#3B82F6", desc: t('techstack.categories.4.skills.0.desc') },
+        { name: t('techstack.categories.4.skills.1.name'), icon: Languages, color: "#EF4444", desc: t('techstack.categories.4.skills.1.desc') },
+        { name: t('techstack.categories.4.skills.2.name'), icon: Languages, color: "#F59E0B", desc: t('techstack.categories.4.skills.2.desc') },
       ]
     }
   ];
@@ -84,7 +93,7 @@ export default function TechStack() {
                     key={skill.name}
                     className="flex items-start gap-4 p-4 rounded-xl border border-border bg-muted/30 hover:bg-muted/80 hover:border-primary/30 transition-colors group"
                   >
-                    <div className="mt-1 p-2 rounded-md bg-transparent border border-border/50 group-hover:scale-110 transition-transform">
+                    <div className="mt-1 p-2 rounded-md bg-transparent border border-border/50 group-hover:scale-110 transition-transform flex items-center justify-center">
                       <skill.icon className="w-6 h-6" style={{ color: skill.color }} />
                     </div>
                     <div>

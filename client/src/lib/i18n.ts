@@ -108,6 +108,14 @@ const resources = {
             skills: [
               { name: "Git", desc: "Versionning, collaboration efficace et gestion de code source." }
             ]
+          },
+          {
+            title: "Langues",
+            skills: [
+              { name: "Français", desc: "Langue maternelle" },
+              { name: "Anglais", desc: "Bilingue - Lu, écrit, parlé couramment" },
+              { name: "Allemand", desc: "Intermédiaire" }
+            ]
           }
         ]
       },
@@ -138,6 +146,13 @@ const resources = {
         },
         footer: "Tous droits réservés.",
         legal: "Mentions Légales"
+      },
+      gdpr: {
+        title: "Respect de votre vie privée",
+        desc: "Nous utilisons des cookies essentiels pour assurer le bon fonctionnement du site. Aucune donnée personnelle n'est revendue.",
+        link: "Politique de confidentialité",
+        accept: "J'accepte",
+        decline: "Je refuse"
       }
     }
   },
@@ -247,6 +262,14 @@ const resources = {
             skills: [
               { name: "Git", desc: "Versioning, effective collaboration, and source code management." }
             ]
+          },
+          {
+            title: "Languages",
+            skills: [
+              { name: "French", desc: "Native" },
+              { name: "English", desc: "Fluent - Read, written, spoken fluently" },
+              { name: "German", desc: "Intermediate" }
+            ]
           }
         ]
       },
@@ -277,6 +300,167 @@ const resources = {
         },
         footer: "All rights reserved.",
         legal: "Legal Notice"
+      },
+      gdpr: {
+        title: "Privacy and Cookie Consent",
+        desc: "We use essential cookies to ensure our site works properly. No personal data is sold.",
+        link: "Privacy Policy",
+        accept: "Accept",
+        decline: "Decline"
+      }
+    }
+  },
+  de: {
+    translation: {
+      nav: {
+        expertise: "Fachwissen",
+        experience: "Erfahrung",
+        stack: "Technologien",
+        projects: "Projekte",
+        contact: "Kontakt",
+        contact_me: "Kontaktieren Sie mich"
+      },
+      hero: {
+        badge: "FullStack, Mobile & Spieleentwickler",
+        title_1: "FullStack und Mobile App Entw.",
+        title_2: "und Spiele.",
+        description: "Ich bin auf Web und Datenbanken spezialisiert. Von der architektonischen Gestaltung bis zur Implementierung moderner Schnittstellen mit <1>React</1>, <2>Python</2> und <3>Node.js</3>.",
+        btn_projects: "Meine Arbeit entdecken",
+        btn_github: "GitHub Profil",
+        btn_roblox: "Roblox Profil"
+      },
+      services: {
+        badge: "Fachgebiete",
+        title: "Technische Lösungen für Ihre komplexen Herausforderungen.",
+        desc: "Mein Ansatz kombiniert architektonische Genauigkeit und Beherrschung moderner Technologien, um leistungsstarke, sichere und skalierbare Software zu liefern.",
+        items: [
+          {
+            title: "Softwareentwicklung",
+            desc: "Architektur und Entwicklung robuster Anwendungen, von Backend-APIs bis zu Frontend-Benutzeroberflächen.",
+            tech: "React, Node.js, TypeScript"
+          },
+          {
+            title: "Automatisierung & Backend",
+            desc: "Entwurf skalierbarer Backend-Systeme, Automatisierungsskripte und komplexe Datenverarbeitung.",
+            tech: "Python, MySQL, REST API"
+          },
+          {
+            title: "Roblox Entwicklung",
+            desc: "Erstellung leistungsstarker interaktiver Erlebnisse auf Roblox mit fortschrittlichen Spielmechaniken.",
+            tech: "Luau, Roblox Studio"
+          },
+          {
+            title: "Systemarchitektur",
+            desc: "Datenbankmodellierung und Entwurf wartbarer und skalierbarer Softwarearchitekturen.",
+            tech: "System Design, CI/CD"
+          }
+        ]
+      },
+      experience: {
+        badge: "Erfahrung",
+        title: "Mein beruflicher Werdegang.",
+        desc: "Eine Entwicklung, die von der Leidenschaft für Problemlösungen und die Schaffung hochwertiger digitaler Erlebnisse geleitet wird.",
+        items: [
+          {
+            year: "2025 - Heute",
+            role: "Spieleentwickler & Luau-Entwickler",
+            company: "Roblox",
+            desc: "Entwicklung komplexer Spielsysteme, immersiver Benutzeroberflächen und fortschrittlicher Multiplayer-Mechaniken auf der Roblox-Plattform. Wichtiger Beitrag zum Spiel French Donations (über 2,5 Millionen Besuche)."
+          },
+          {
+            year: "2023 - Heute",
+            role: "Unabhängiger Fullstack-Entwickler",
+            company: "Freiberuflich",
+            desc: "Erstellung moderner Webanwendungen mit React, Node.js und MySQL. Entwurf flüssiger, sicherer und leistungsoptimierter Benutzeroberflächen."
+          },
+          {
+            year: "2020 - 2022",
+            role: "Python Entwickler",
+            company: "Persönliche Projekte",
+            desc: "Erstellung leistungsstarker Discord-Bots, Automatisierungsskripte und verschiedener Datenanalysetools mit Python."
+          }
+        ]
+      },
+      techstack: {
+        badge: "Technologie-Stack",
+        title: "Die Technologien, die ich täglich nutze.",
+        desc: "Eine Auswahl von Werkzeugen und Sprachen, die ich beherrsche, um vollständige Anwendungen zu entwerfen, zu entwickeln und bereitzustellen.",
+        categories: [
+          {
+            title: "Backend & Daten",
+            skills: [
+              { name: "Python", desc: "Erstellung von Discord-Bots, Automatisierungsskripten und verschiedenen Datenanalysetools." },
+              { name: "Node.js", desc: "Architektur von Hochleistungs-APIs und Backend-Diensten." },
+              { name: "MySQL", desc: "Entwurf, Verwaltung und Optimierung relationaler Datenbanken." }
+            ]
+          },
+          {
+            title: "Frontend & Web",
+            skills: [
+              { name: "React", desc: "Entwicklung interaktiver, flüssiger und moderner Benutzeroberflächen." },
+              { name: "TypeScript", desc: "Robuste, wartbare und stark typisierte Webentwicklung." },
+              { name: "JavaScript", desc: "Komplexe Anwendungslogik und Webdynamik." },
+              { name: "HTML5/CSS3", desc: "Fortgeschrittene semantische Struktur, responsives Design und Animationen." }
+            ]
+          },
+          {
+            title: "Spieleentwicklung & Mobile",
+            skills: [
+              { name: "Luau", desc: "Entwicklung komplexer Spielsysteme und fortschrittlicher Mechaniken auf Roblox." },
+              { name: "Lua", desc: "Systementwicklung, Skripterstellung und Integrationen für Videospiele." },
+              { name: "Dart", desc: "Erstellung leistungsstarker plattformübergreifender mobiler Anwendungen." }
+            ]
+          },
+          {
+            title: "Werkzeuge",
+            skills: [
+              { name: "Git", desc: "Versionierung, effektive Zusammenarbeit und Quellcodeverwaltung." }
+            ]
+          },
+          {
+            title: "Sprachen",
+            skills: [
+              { name: "Französisch", desc: "Muttersprache" },
+              { name: "Englisch", desc: "Fließend" },
+              { name: "Deutsch", desc: "Mittelstufe" }
+            ]
+          }
+        ]
+      },
+      projects: {
+        badge: "Portfolio",
+        title: "Ausgewählte Projekte.",
+        desc: "Ein Überblick über meine jüngsten Arbeiten, der meine Fähigkeit zeigt, Softwarelösungen durchgängig zu entwerfen und bereitzustellen.",
+        btn_visit: "Projekt besuchen",
+        btn_code: "Quellcode"
+      },
+      contact: {
+        badge: "Kontakt",
+        title: "Lassen Sie uns ein Projekt starten.",
+        desc: "Ob für eine Zusammenarbeit, eine technische Frage oder einfach zum Plaudern, kontaktieren Sie mich gerne.",
+        location: "Standort",
+        city: "Lille, Frankreich",
+        status: "Verfügbar für neue Herausforderungen",
+        form: {
+          name: "Vollständiger Name",
+          name_placeholder: "Ihr Name",
+          email: "E-Mail",
+          email_placeholder: "ihre@email.com",
+          subject: "Betreff",
+          subject_placeholder: "Betreff Ihrer Nachricht",
+          message: "Nachricht",
+          message_placeholder: "Beschreiben Sie Ihr Projekt oder Ihre Bedürfnisse...",
+          submit: "Nachricht senden"
+        },
+        footer: "Alle Rechte vorbehalten.",
+        legal: "Impressum"
+      },
+      gdpr: {
+        title: "Datenschutz und Cookie-Zustimmung",
+        desc: "Wir verwenden wesentliche Cookies, um sicherzustellen, dass unsere Website ordnungsgemäß funktioniert. Es werden keine personenbezogenen Daten verkauft.",
+        link: "Datenschutzerklärung",
+        accept: "Akzeptieren",
+        decline: "Ablehnen"
       }
     }
   }

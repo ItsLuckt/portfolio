@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/hooks/use-theme";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import CookieBanner from "@/components/CookieBanner";
 import Home from "@/pages/Home";
 import Legal from "@/pages/Legal";
 import ProjectDetail from "@/pages/ProjectDetail";
@@ -28,6 +29,7 @@ function App() {
         <TooltipProvider>
           <AnimatedBackground />
           <Toaster />
+          <CookieBanner />
           <Router />
         </TooltipProvider>
       </QueryClientProvider>
