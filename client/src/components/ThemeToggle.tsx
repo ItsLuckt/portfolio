@@ -1,36 +1,20 @@
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    // Check initial preference from class or local storage
-    const isDarkMode = document.documentElement.classList.contains("dark") || 
-                       localStorage.getItem("theme") === "dark";
+  const { theme, setTheme } = useTheme();
+  
+  // Use resolved theme to know what's actually being displayed
+  const resolvedTheme = theme === "system" 
+    ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") 
+    : theme;
     
-    // Fallback if nothing set
-    if (localStorage.getItem("theme") === "light") {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+  const isDark = resolvedTheme === "dark";
 
   const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
