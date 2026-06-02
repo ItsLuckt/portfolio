@@ -19,10 +19,8 @@ export const projects: Project[] = [
     slug: "school-rp-fr",
     title: "The School RP FR",
     category: "Roblox Development",
-    description:
-      "Jeu de Roleplay scolaire francophone sur Roblox. Développement des systèmes de gameplay et d'interactions.",
-    longDescription:
-      "The School RP FR est une expérience immersive sur Roblox qui simule la vie scolaire. En tant que développeur principal, j'ai conçu l'architecture globale du jeu pour supporter des centaines de joueurs simultanés. J'ai travaillé sur l'intégration de systèmes complexes comme la gestion des emplois du temps, les interactions entre joueurs, et un système d'économie complet.",
+    description: "Jeu de Roleplay scolaire francophone sur Roblox. Développement des systèmes de gameplay et d'interactions.",
+    longDescription: "The School RP FR est une expérience immersive sur Roblox qui simule la vie scolaire. En tant que développeur principal, j'ai conçu l'architecture globale du jeu pour supporter des centaines de joueurs simultanés. J'ai travaillé sur l'intégration de systèmes complexes comme la gestion des emplois du temps, les interactions entre joueurs, et un système d'économie complet.",
     features: [
       "Système de cours interactifs avec mini-jeux éducatifs",
       "Gestion dynamique des rôles (Élève, Professeur, Proviseur)",
@@ -41,10 +39,8 @@ export const projects: Project[] = [
     slug: "french-donations",
     title: "French Donations",
     category: "Roblox Systems",
-    description:
-      "Création d'évent, Système de sanction et Système d'inventaire.",
-    longDescription:
-      "Sur French Donations, j'ai agi en tant que Lead System Developer. J'ai conçu un écosystème complet pour automatiser la gestion des joueurs et enrichir l'expérience utilisateur. Cela inclut un moteur de sanction autonome, un système d'inventaire optimisé pour la persistance des données et des modules événementiels interactifs.",
+    description: "Création d'évent, Système de sanction et Système d'inventaire.",
+    longDescription: "Sur French Donations, j'ai agi en tant que Lead System Developer. J'ai conçu un écosystème complet pour automatiser la gestion des joueurs et enrichir l'expérience utilisateur. Cela inclut un moteur de sanction autonome, un système d'inventaire optimisé pour la persistance des données et des modules événementiels interactifs.",
     features: [
       "Calendrier de l'Avent interactif pour un Event de Noël avec récompenses quotidiennes",
       "Système d'inventaire compatible avec les différents mini-jeux du jeu",
@@ -62,10 +58,8 @@ export const projects: Project[] = [
     slug: "portfolio-moderne",
     title: "Portfolio Moderne",
     category: "Web Development",
-    description:
-      "Ce site portfolio interactif construit avec React, TypeScript et Framer Motion pour des animations fluides.",
-    longDescription:
-      "Ce projet avait pour but de créer une vitrine professionnelle, rapide et esthétique. J'ai choisi une stack moderne (React + Vite) pour la performance, couplée à Framer Motion pour apporter une touche de vie à travers des animations soignées. L'accent a été mis sur l'expérience utilisateur et le responsive design.",
+    description: "Ce site portfolio interactif construit avec React, TypeScript et Framer Motion pour des animations fluides.",
+    longDescription: "Ce projet avait pour but de créer une vitrine professionnelle, rapide et esthétique. J'ai choisi une stack moderne (React + Vite) pour la performance, couplée à Framer Motion pour apporter une touche de vie à travers des animations soignées. L'accent a été mis sur l'expérience utilisateur et le responsive design.",
     features: [
       "Animations fluides au scroll avec Framer Motion",
       "Design System cohérent basé sur Tailwind CSS",

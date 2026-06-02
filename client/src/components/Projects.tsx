@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 import { useTranslation } from "react-i18next";
+import { Link } from "wouter";
 
 const ProjectCard = ({ project, index, t }: { project: any, index: number, t: any }) => {
   return (
@@ -29,20 +30,22 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
         )}
         <div className="absolute top-4 left-4">
           <Badge variant="secondary" className="bg-transparent/80 backdrop-blur-md font-medium">
-            {project.category}
+            {t(`projects_data.${project.slug}.category`, { defaultValue: project.category })}
           </Badge>
         </div>
       </div>
 
       {/* Content */}
       <div className="w-full md:w-3/5 flex flex-col justify-center">
-        <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors flex items-center gap-2">
-          {project.title}
-          <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-primary" />
-        </h3>
+        <Link href={`/project/${project.slug}`}>
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
+            {t(`projects_data.${project.slug}.title`, { defaultValue: project.title })}
+            <ArrowUpRight className="w-5 h-5 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-primary" />
+          </h3>
+        </Link>
         
         <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-lg">
-          {project.description}
+          {t(`projects_data.${project.slug}.description`, { defaultValue: project.description })}
         </p>
         
         <div className="flex flex-wrap gap-2 mb-8">

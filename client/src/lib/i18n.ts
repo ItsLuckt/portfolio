@@ -126,6 +126,51 @@ const resources = {
         btn_visit: "Visiter le projet",
         btn_code: "Code source"
       },
+      projects_data: {
+        "school-rp-fr": {
+          title: "The School RP FR",
+          category: "Développement Roblox",
+          description: "Jeu de Roleplay scolaire francophone sur Roblox. Développement des systèmes de gameplay et d'interactions.",
+          longDescription: "The School RP FR est une expérience immersive sur Roblox qui simule la vie scolaire. En tant que développeur principal, j'ai conçu l'architecture globale du jeu pour supporter des centaines de joueurs simultanés. J'ai travaillé sur l'intégration de systèmes complexes comme la gestion des emplois du temps, les interactions entre joueurs, et un système d'économie complet.",
+          features: [
+            "Système de cours interactifs avec mini-jeux éducatifs",
+            "Gestion dynamique des rôles (Élève, Professeur, Proviseur)",
+            "Augmentation de la performance de la base de données",
+            "Optimisation des scripts pour réduire le lag serveur"
+          ]
+        },
+        "french-donations": {
+          title: "French Donations",
+          category: "Systèmes Roblox",
+          description: "Création d'évent, Système de sanction et Système d'inventaire.",
+          longDescription: "Sur French Donations, j'ai agi en tant que Lead System Developer. J'ai conçu un écosystème complet pour automatiser la gestion des joueurs et enrichir l'expérience utilisateur. Cela inclut un moteur de sanction autonome, un système d'inventaire optimisé pour la persistance des données et des modules événementiels interactifs.",
+          features: [
+            "Calendrier de l'Avent interactif pour un Event de Noël avec récompenses quotidiennes",
+            "Système d'inventaire compatible avec les différents mini-jeux du jeu",
+            "Logs de sanctions automatique via Webhooks Discord pour le staff"
+          ]
+        },
+        "portfolio-moderne": {
+          title: "Portfolio Moderne",
+          category: "Développement Web",
+          description: "Ce site portfolio interactif construit avec React, TypeScript et Framer Motion pour des animations fluides.",
+          longDescription: "Ce projet avait pour but de créer une vitrine professionnelle, rapide et esthétique. J'ai choisi une stack moderne (React + Vite) pour la performance, couplée à Framer Motion pour apporter une touche de vie à travers des animations soignées. L'accent a été mis sur l'expérience utilisateur et le responsive design.",
+          features: [
+            "Animations fluides au scroll avec Framer Motion",
+            "Design System cohérent basé sur Tailwind CSS",
+            "Mode sombre immersif avec effets de verre (Glassmorphism)",
+            "Architecture de composants réutilisables",
+            "Performance optimale (Lighthouse score > 90)"
+          ]
+        }
+      },
+      project_detail: {
+        back: "Retour aux projets",
+        features: "Fonctionnalités Clés",
+        links: "Liens du projet",
+        view_project: "Voir le projet",
+        view_code: "Voir le code"
+      },
       contact: {
         badge: "Contact",
         title: "Démarrons un projet ensemble.",
@@ -142,7 +187,11 @@ const resources = {
           subject_placeholder: "Objet de votre message",
           message: "Message",
           message_placeholder: "Décrivez votre projet ou votre besoin...",
-          submit: "Envoyer le message"
+          submit: "Envoyer le message",
+          error_title: "Erreur",
+          error_desc: "Veuillez remplir tous les champs obligatoires.",
+          success_title: "Message envoyé !",
+          success_desc: "Je vous répondrai dans les plus brefs délais."
         },
         footer: "Tous droits réservés.",
         legal: "Mentions Légales"
@@ -153,6 +202,28 @@ const resources = {
         link: "Politique de confidentialité",
         accept: "J'accepte",
         decline: "Je refuse"
+      },
+      legal: {
+        title: "Mentions Légales",
+        back: "Retour à l'accueil",
+        sections: [
+          {
+            title: "1. Éditeur du site",
+            content: "Ce site est un portfolio personnel édité par un particulier à des fins non commerciales."
+          },
+          {
+            title: "2. Hébergement",
+            content: "Ce site est hébergé par la société Vercel Inc."
+          },
+          {
+            title: "3. Propriété intellectuelle",
+            content: "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques. La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication."
+          },
+          {
+            title: "4. Protection des données personnelles",
+            content: "Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Les informations recueillies via le formulaire de contact (Nom, Email) ne sont utilisées que pour répondre à votre demande et ne sont jamais cédées à des tiers. Conformément à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de modification et de suppression des données vous concernant."
+          }
+        ]
       }
     }
   },
@@ -280,6 +351,51 @@ const resources = {
         btn_visit: "Visit project",
         btn_code: "Source code"
       },
+      projects_data: {
+        "school-rp-fr": {
+          title: "The School RP FR",
+          category: "Roblox Development",
+          description: "French-speaking school roleplay game on Roblox. Development of gameplay and interaction systems.",
+          longDescription: "The School RP FR is an immersive Roblox experience that simulates school life. As the lead developer, I designed the overall game architecture to support hundreds of concurrent players. I worked on integrating complex systems such as schedule management, player interactions, and a complete economy system.",
+          features: [
+            "Interactive class system with educational mini-games",
+            "Dynamic role management (Student, Teacher, Principal)",
+            "Database performance improvements",
+            "Script optimization to reduce server lag"
+          ]
+        },
+        "french-donations": {
+          title: "French Donations",
+          category: "Roblox Systems",
+          description: "Creation of event, sanction system and inventory system.",
+          longDescription: "On French Donations, I acted as Lead System Developer. I designed a complete ecosystem to automate player management and enrich the user experience. This includes an autonomous sanction engine, an optimized inventory system for data persistence, and interactive event modules.",
+          features: [
+            "Interactive Advent Calendar for a Christmas Event with daily rewards",
+            "Inventory system compatible with the different mini-games",
+            "Automatic sanction logs via Discord Webhooks for staff"
+          ]
+        },
+        "portfolio-moderne": {
+          title: "Modern Portfolio",
+          category: "Web Development",
+          description: "This interactive portfolio website built with React, TypeScript and Framer Motion for fluid animations.",
+          longDescription: "The goal of this project was to create a professional, fast, and aesthetic showcase. I chose a modern stack (React + Vite) for performance, coupled with Framer Motion to bring it to life through polished animations. The focus was on user experience and responsive design.",
+          features: [
+            "Smooth scroll animations with Framer Motion",
+            "Consistent Design System based on Tailwind CSS",
+            "Immersive dark mode with glass effects (Glassmorphism)",
+            "Reusable component architecture",
+            "Optimal performance (Lighthouse score > 90)"
+          ]
+        }
+      },
+      project_detail: {
+        back: "Back to projects",
+        features: "Key Features",
+        links: "Project Links",
+        view_project: "View project",
+        view_code: "View code"
+      },
       contact: {
         badge: "Contact",
         title: "Let's start a project together.",
@@ -296,7 +412,11 @@ const resources = {
           subject_placeholder: "Subject of your message",
           message: "Message",
           message_placeholder: "Describe your project or your needs...",
-          submit: "Send message"
+          submit: "Send message",
+          error_title: "Error",
+          error_desc: "Please fill in all required fields.",
+          success_title: "Message sent!",
+          success_desc: "I will get back to you as soon as possible."
         },
         footer: "All rights reserved.",
         legal: "Legal Notice"
@@ -307,6 +427,28 @@ const resources = {
         link: "Privacy Policy",
         accept: "Accept",
         decline: "Decline"
+      },
+      legal: {
+        title: "Legal Notice",
+        back: "Back to home",
+        sections: [
+          {
+            title: "1. Site Publisher",
+            content: "This site is a personal portfolio published by an individual for non-commercial purposes."
+          },
+          {
+            title: "2. Hosting",
+            content: "This site is hosted by Vercel Inc."
+          },
+          {
+            title: "3. Intellectual Property",
+            content: "This entire site is subject to French and international legislation on copyright and intellectual property. All reproduction rights are reserved, including for downloadable documents and iconographic and photographic representations. The reproduction of all or part of this site on any electronic medium is strictly prohibited without the express permission of the publishing director."
+          },
+          {
+            title: "4. Personal Data Protection",
+            content: "This site does not collect any personal data without the user's knowledge. The information collected via the contact form (Name, Email) is only used to respond to your request and is never passed on to third parties. In accordance with the 'Informatique et Libertés' law, you have the right to access, modify, and delete your data."
+          }
+        ]
       }
     }
   },
@@ -434,6 +576,51 @@ const resources = {
         btn_visit: "Projekt besuchen",
         btn_code: "Quellcode"
       },
+      projects_data: {
+        "school-rp-fr": {
+          title: "The School RP FR",
+          category: "Roblox Entwicklung",
+          description: "Französischsprachiges Schul-Rollenspiel auf Roblox. Entwicklung von Gameplay- und Interaktionssystemen.",
+          longDescription: "The School RP FR ist ein immersives Roblox-Erlebnis, das das Schulleben simuliert. Als leitender Entwickler entwarf ich die gesamte Spielarchitektur, um Hunderte von gleichzeitigen Spielern zu unterstützen. Ich arbeitete an der Integration komplexer Systeme wie Zeitplanverwaltung, Spielerinteraktionen und einem vollständigen Wirtschaftssystem.",
+          features: [
+            "Interaktives Klassensystem mit pädagogischen Minispielen",
+            "Dynamisches Rollenmanagement (Schüler, Lehrer, Direktor)",
+            "Verbesserungen der Datenbankleistung",
+            "Skriptoptimierung zur Reduzierung von Serververzögerungen"
+          ]
+        },
+        "french-donations": {
+          title: "French Donations",
+          category: "Roblox Systeme",
+          description: "Erstellung von Event-, Sanktions- und Inventarsystemen.",
+          longDescription: "Bei French Donations fungierte ich als Lead System Developer. Ich entwarf ein komplettes Ökosystem zur Automatisierung der Spielerverwaltung und zur Bereicherung der Benutzererfahrung. Dies umfasst eine autonome Sanktions-Engine, ein optimiertes Inventarsystem für die Datenpersistenz und interaktive Eventmodule.",
+          features: [
+            "Interaktiver Adventskalender für ein Weihnachtsevent mit täglichen Belohnungen",
+            "Inventarsystem kompatibel mit den verschiedenen Minispielen",
+            "Automatische Sanktionsprotokolle über Discord-Webhooks für das Personal"
+          ]
+        },
+        "portfolio-moderne": {
+          title: "Modernes Portfolio",
+          category: "Webentwicklung",
+          description: "Diese interaktive Portfolio-Website wurde mit React, TypeScript und Framer Motion für flüssige Animationen erstellt.",
+          longDescription: "Ziel dieses Projekts war es, ein professionelles, schnelles und ästhetisches Schaufenster zu schaffen. Ich entschied mich für einen modernen Stack (React + Vite) für die Leistung, gepaart mit Framer Motion, um es durch ausgefeilte Animationen zum Leben zu erwecken. Der Schwerpunkt lag auf der Benutzererfahrung und dem responsiven Design.",
+          features: [
+            "Flüssige Scroll-Animationen mit Framer Motion",
+            "Konsistentes Design-System basierend auf Tailwind CSS",
+            "Immersiver Dunkelmodus mit Glaseffekten (Glassmorphismus)",
+            "Wiederverwendbare Komponentenarchitektur",
+            "Optimale Leistung (Lighthouse-Ergebnis > 90)"
+          ]
+        }
+      },
+      project_detail: {
+        back: "Zurück zu Projekten",
+        features: "Hauptmerkmale",
+        links: "Projekt-Links",
+        view_project: "Projekt ansehen",
+        view_code: "Code ansehen"
+      },
       contact: {
         badge: "Kontakt",
         title: "Lassen Sie uns ein Projekt starten.",
@@ -450,7 +637,11 @@ const resources = {
           subject_placeholder: "Betreff Ihrer Nachricht",
           message: "Nachricht",
           message_placeholder: "Beschreiben Sie Ihr Projekt oder Ihre Bedürfnisse...",
-          submit: "Nachricht senden"
+          submit: "Nachricht senden",
+          error_title: "Fehler",
+          error_desc: "Bitte füllen Sie alle erforderlichen Felder aus.",
+          success_title: "Nachricht gesendet!",
+          success_desc: "Ich werde mich so schnell wie möglich bei Ihnen melden."
         },
         footer: "Alle Rechte vorbehalten.",
         legal: "Impressum"
@@ -461,6 +652,28 @@ const resources = {
         link: "Datenschutzerklärung",
         accept: "Akzeptieren",
         decline: "Ablehnen"
+      },
+      legal: {
+        title: "Impressum",
+        back: "Zurück zur Startseite",
+        sections: [
+          {
+            title: "1. Herausgeber der Website",
+            content: "Diese Website ist ein persönliches Portfolio, das von einer Einzelperson für nichtkommerzielle Zwecke veröffentlicht wird."
+          },
+          {
+            title: "2. Hosting",
+            content: "Diese Website wird von Vercel Inc. gehostet."
+          },
+          {
+            title: "3. Geistiges Eigentum",
+            content: "Diese gesamte Website unterliegt der französischen und internationalen Gesetzgebung zum Urheberrecht und zum geistigen Eigentum. Alle Vervielfältigungsrechte sind vorbehalten, auch für herunterladbare Dokumente sowie ikonografische und fotografische Darstellungen. Die Vervielfältigung dieser Website oder Teilen davon auf einem elektronischen Medium ist ohne ausdrückliche Genehmigung des Veröffentlichungsdirektors strengstens untersagt."
+          },
+          {
+            title: "4. Schutz personenbezogener Daten",
+            content: "Diese Website sammelt ohne das Wissen des Benutzers keine personenbezogenen Daten. Die über das Kontaktformular erfassten Informationen (Name, E-Mail) werden nur zur Beantwortung Ihrer Anfrage verwendet und niemals an Dritte weitergegeben. Gemäß dem Gesetz 'Informatique et Libertés' haben Sie das Recht auf Zugang, Änderung und Löschung Ihrer Daten."
+          }
+        ]
       }
     }
   }

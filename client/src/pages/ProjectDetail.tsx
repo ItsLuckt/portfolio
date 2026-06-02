@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 import NotFound from "@/pages/not-found";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:slug");
+  const { t } = useTranslation();
   
   // Scroll to top on mount
   useEffect(() => {
@@ -21,6 +23,14 @@ export default function ProjectDetail() {
 
   if (!project) return <NotFound />;
 
+  // Get translated content or fallback to original
+  const title = t(`projects_data.${project.slug}.title`, { defaultValue: project.title });
+  const category = t(`projects_data.${project.slug}.category`, { defaultValue: project.category });
+  const longDescription = t(`projects_data.${project.slug}.longDescription`, { defaultValue: project.longDescription });
+  
+  // Need to get features array - react-i18next allows accessing array elements directly or getting the whole array with returnObjects: true
+  const features = t(`projects_data.${project.slug}.features`, { returnObjects: true, defaultValue: project.features }) as string[];
+
   return (
     <div className="min-h-screen bg-background text-foreground pt-24 pb-20">
       {/* Background decoration */}
@@ -29,7 +39,7 @@ export default function ProjectDetail() {
       <div className="container mx-auto px-6 max-w-4xl">
         <Link href="/#projects">
           <Button variant="ghost" className="mb-8 pl-0 hover:pl-2 transition-all group">
-            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Retour aux projets
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> {t('project_detail.back')}
           </Button>
         </Link>
 
@@ -40,7 +50,7 @@ export default function ProjectDetail() {
         >
           <div className="flex flex-wrap gap-2 mb-6">
             <Badge variant="outline" className="text-primary border-primary/30 px-3 py-1 text-sm">
-              {project.category}
+              {category}
             </Badge>
             {project.tags.map(tag => (
               <Badge key={tag} variant="secondary" className="bg-secondary/50">
@@ -50,11 +60,11 @@ export default function ProjectDetail() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            {project.title}
+            {title}
           </h1>
 
           <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-            {project.longDescription}
+            {longDescription}
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -62,10 +72,10 @@ export default function ProjectDetail() {
               <div className="bg-secondary/20 rounded-2xl p-8 border border-white/5 backdrop-blur-sm">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
                   <CheckCircle2 className="mr-3 text-primary" />
-                  Fonctionnalités Clés
+                  {t('project_detail.features')}
                 </h2>
                 <ul className="space-y-4">
-                  {project.features.map((feature, index) => (
+                  {features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3 text-muted-foreground">
                       <div className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       {feature}
@@ -77,7 +87,7 @@ export default function ProjectDetail() {
 
             <div className="space-y-6">
               <div className="bg-secondary/20 rounded-2xl p-6 border border-white/5 sticky top-24">
-                <h3 className="font-bold text-lg mb-4">Liens du projet</h3>
+                <h3 className="font-bold text-lg mb-4">{t('project_detail.links')}</h3>
                 <div className="space-y-3">
                   <Button 
                     className="w-full" 
@@ -86,7 +96,7 @@ export default function ProjectDetail() {
                     disabled={project.links.demo === "#"}
                   >
                     {project.category.includes("Roblox") ? <Play className="mr-2 h-4 w-4" /> : <ExternalLink className="mr-2 h-4 w-4" />}
-                    Voir le projet
+                    {t('project_detail.view_project')}
                   </Button>
                   
                   {project.links.github && (
@@ -97,7 +107,7 @@ export default function ProjectDetail() {
                       onClick={() => window.open(project.links.github, "_blank")}
                     >
                       <Github className="mr-2 h-4 w-4" />
-                      Voir le code
+                      {t('project_detail.view_code')}
                     </Button>
                   )}
                 </div>

@@ -2,14 +2,17 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function Legal() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-background text-foreground pt-20 pb-10 px-6">
       <div className="container mx-auto max-w-3xl">
         <Link href="/">
           <Button variant="ghost" className="mb-8 pl-0 hover:pl-2 transition-all">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Retour à l'accueil
+            <ArrowLeft className="mr-2 h-4 w-4" /> {t('legal.back')}
           </Button>
         </Link>
 
@@ -18,47 +21,40 @@ export default function Legal() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-primary">Mentions Légales</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-primary">{t('legal.title')}</h1>
 
           <div className="space-y-8 text-muted-foreground">
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">1. Éditeur du site</h2>
+              <h2 className="text-xl font-semibold text-foreground">{t('legal.sections.0.title')}</h2>
               <p>
-                Ce site est un portfolio personnel édité par un particulier à des fins non commerciales.
+                {t('legal.sections.0.content')}
               </p>
               <p>
                 <strong>Responsable de la publication :</strong> Luckt<br />
-                <strong>Contact :</strong> luckt.rbx@gmail.Com
+                <strong>Contact :</strong> luckt.rbx@gmail.com
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">2. Hébergement</h2>
+              <h2 className="text-xl font-semibold text-foreground">{t('legal.sections.1.title')}</h2>
               <p>
-                Ce site est hébergé par la société <strong>Vercel Inc.</strong><br />
+                {t('legal.sections.1.content')}<br />
                 Adresse : 340 S Lemon Ave #4133 Walnut, CA 91789, USA.<br />
                 Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://vercel.com</a>
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">3. Propriété intellectuelle</h2>
+              <h2 className="text-xl font-semibold text-foreground">{t('legal.sections.2.title')}</h2>
               <p>
-                L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. 
-                Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
-              </p>
-              <p>
-                La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
+                {t('legal.sections.2.content')}
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-xl font-semibold text-foreground">4. Protection des données personnelles</h2>
+              <h2 className="text-xl font-semibold text-foreground">{t('legal.sections.3.title')}</h2>
               <p>
-                Ce site ne collecte aucune donnée personnelle à l'insu de l'utilisateur. Les informations recueillies via le formulaire de contact (Nom, Email) ne sont utilisées que pour répondre à votre demande et ne sont jamais cédées à des tiers.
-              </p>
-              <p>
-                Conformément à la loi « Informatique et Libertés », vous disposez d'un droit d'accès, de modification et de suppression des données vous concernant.
+                {t('legal.sections.3.content')}
               </p>
             </section>
           </div>

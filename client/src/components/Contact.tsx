@@ -6,9 +6,38 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const { t } = useTranslation();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: t('contact.form.error_title', 'Erreur'),
+        description: t('contact.form.error_desc', 'Veuillez remplir tous les champs obligatoires.'),
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Simulate sending
+    setTimeout(() => {
+      toast({
+        title: t('contact.form.success_title', 'Message envoyé !'),
+        description: t('contact.form.success_desc', 'Je vous répondrai dans les plus brefs délais.'),
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setIsSubmitting(false);
+    }, 1500);
+  };
 
   return (
     <section id="contact" className="py-24 bg-muted/30 relative">
@@ -82,28 +111,49 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="lg:col-span-3 space-y-5 bg-transparent p-8 rounded-2xl border border-border shadow-sm"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="grid md:grid-cols-2 gap-5">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground/80">{t('contact.form.name')}</label>
-                <Input placeholder={t('contact.form.name_placeholder')} className="h-12 bg-muted/50 border-border" />
+                <Input 
+                  placeholder={t('contact.form.name_placeholder')} 
+                  className="h-12 bg-muted/50 border-border" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground/80">{t('contact.form.email')}</label>
-                <Input placeholder={t('contact.form.email_placeholder')} type="email" className="h-12 bg-muted/50 border-border" />
+                <Input 
+                  placeholder={t('contact.form.email_placeholder')} 
+                  type="email" 
+                  className="h-12 bg-muted/50 border-border" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground/80">{t('contact.form.subject')}</label>
-              <Input placeholder={t('contact.form.subject_placeholder')} className="h-12 bg-muted/50 border-border" />
+              <Input 
+                placeholder={t('contact.form.subject_placeholder')} 
+                className="h-12 bg-muted/50 border-border" 
+                value={formData.subject}
+                onChange={(e) => setFormData({...formData, subject: e.target.value})}
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground/80">{t('contact.form.message')}</label>
-              <Textarea placeholder={t('contact.form.message_placeholder')} className="min-h-[150px] bg-muted/50 border-border resize-none" />
+              <Textarea 
+                placeholder={t('contact.form.message_placeholder')} 
+                className="min-h-[150px] bg-muted/50 border-border resize-none" 
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+              />
             </div>
-            <Button type="submit" size="lg" className="w-full h-12 text-base font-medium mt-2">
-              {t('contact.form.submit')} <Send className="w-4 h-4 ml-2" />
+            <Button type="submit" size="lg" className="w-full h-12 text-base font-medium mt-2" disabled={isSubmitting}>
+              {isSubmitting ? "..." : <>{t('contact.form.submit')} <Send className="w-4 h-4 ml-2" /></>}
             </Button>
           </motion.form>
         </div>
