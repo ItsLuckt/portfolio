@@ -54,30 +54,33 @@ export default function TechStack() {
     {
       title: t('techstack.categories.4.title'),
       skills: [
-        { name: t('techstack.categories.4.skills.0.name'), icon: Languages, color: "#3B82F6", desc: t('techstack.categories.4.skills.0.desc') },
-        { name: t('techstack.categories.4.skills.1.name'), icon: Languages, color: "#EF4444", desc: t('techstack.categories.4.skills.1.desc') },
-        { name: t('techstack.categories.4.skills.2.name'), icon: Languages, color: "#F59E0B", desc: t('techstack.categories.4.skills.2.desc') },
+        { name: t('techstack.categories.4.skills.0.name'), icon: Languages, color: "#9333ea", desc: t('techstack.categories.4.skills.0.desc') },
+        { name: t('techstack.categories.4.skills.1.name'), icon: Languages, color: "#d946ef", desc: t('techstack.categories.4.skills.1.desc') },
+        { name: t('techstack.categories.4.skills.2.name'), icon: Languages, color: "#ec4899", desc: t('techstack.categories.4.skills.2.desc') },
       ]
     }
   ];
 
   return (
-    <section id="skills" className="py-24 bg-transparent border-b border-border/50">
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-32 bg-background/30 backdrop-blur-sm border-b border-white/5 relative">
+      {/* Decorative blurry spot */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="max-w-3xl mb-16"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('techstack.badge')}</h2>
           <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('techstack.title')}</h3>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground font-light">
             {t('techstack.desc')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, idx) => (
             <motion.div 
               key={category.title}
@@ -85,20 +88,21 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
+              className="glass-card rounded-2xl p-6"
             >
-              <h4 className="text-lg font-medium border-b border-border/50 pb-3 mb-6 text-foreground/80">{category.title}</h4>
-              <div className="flex flex-col gap-4">
+              <h4 className="text-xl font-bold border-b border-border/40 pb-4 mb-6 text-foreground">{category.title}</h4>
+              <div className="flex flex-col gap-5">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-start gap-4 p-4 rounded-xl border border-border bg-muted/30 hover:bg-muted/80 hover:border-primary/30 transition-colors group"
+                    className="flex items-start gap-4 group"
                   >
-                    <div className="mt-1 p-2 rounded-md bg-transparent border border-border/50 group-hover:scale-110 transition-transform flex items-center justify-center">
-                      <skill.icon className="w-6 h-6" style={{ color: skill.color }} />
+                    <div className="mt-1 p-2.5 rounded-xl bg-muted/50 border border-border/50 group-hover:scale-110 group-hover:bg-background transition-all duration-300 flex items-center justify-center shadow-sm">
+                      <skill.icon className="w-6 h-6 transition-colors duration-300" style={{ color: skill.color }} />
                     </div>
                     <div>
-                      <span className="font-semibold text-foreground/90 block mb-1">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground leading-relaxed">{skill.desc}</span>
+                      <span className="font-semibold text-foreground block mb-1 group-hover:text-primary transition-colors">{skill.name}</span>
+                      <span className="text-sm text-muted-foreground/80 leading-relaxed font-light">{skill.desc}</span>
                     </div>
                   </div>
                 ))}

@@ -33,7 +33,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 relative bg-muted/30 border-y border-border/50">
+    <section id="services" className="py-24 relative bg-background/50 border-y border-white/5 backdrop-blur-sm">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
           className="max-w-3xl mb-16"
@@ -43,12 +43,12 @@ export default function Services() {
         >
           <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('services.badge')}</h2>
           <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('services.title')}</h3>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed font-light">
             {t('services.desc')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -56,18 +56,20 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-transparent border border-border rounded-xl p-8 hover:border-primary/50 transition-colors duration-300 group shadow-sm"
+              className="glass-card rounded-2xl p-8 group relative overflow-hidden"
             >
-              <div className="flex flex-col h-full">
-                <div className="mb-6 inline-flex p-3 rounded-lg bg-primary/10 text-primary w-fit group-hover:scale-105 transition-transform">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-primary/10 text-primary w-fit group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
                   <service.icon className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-bold mb-3 text-foreground">{service.title}</h4>
-                <p className="text-muted-foreground leading-relaxed flex-grow mb-6">
+                <h4 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h4>
+                <p className="text-muted-foreground leading-relaxed flex-grow mb-8 font-light">
                   {service.description}
                 </p>
-                <div className="pt-4 border-t border-border/50 mt-auto">
-                  <span className="text-xs font-mono text-muted-foreground/80">{service.tech}</span>
+                <div className="pt-5 border-t border-border/40 mt-auto">
+                  <span className="text-xs font-mono text-muted-foreground/80 bg-secondary/50 px-3 py-1.5 rounded-full">{service.tech}</span>
                 </div>
               </div>
             </motion.div>
