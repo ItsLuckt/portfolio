@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, SquareTerminal } from "lucide-react";
+import { ArrowRight, Github, SquareTerminal, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiRoblox } from "react-icons/si";
 import { useTranslation, Trans } from "react-i18next";
