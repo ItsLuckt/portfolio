@@ -59,29 +59,29 @@
   --border: 260 20% 85%;
   --input: 260 20% 85%;
   --ring: 262 83% 58%;
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 .dark {
-  /* Purple/Indigo Deep Dark Theme */
-  --background: 260 60% 4%;
-  --foreground: 260 20% 95%;
-  --card: 260 40% 6%;
-  --card-foreground: 260 20% 95%;
-  --popover: 260 40% 6%;
-  --popover-foreground: 260 20% 95%;
+  /* Midnight Galaxy Theme */
+  --background: 250 50% 3%;
+  --foreground: 260 20% 98%;
+  --card: 250 40% 5%;
+  --card-foreground: 260 20% 98%;
+  --popover: 250 40% 5%;
+  --popover-foreground: 260 20% 98%;
   --primary: 265 89% 65%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 260 30% 12%;
+  --secondary: 250 30% 10%;
   --secondary-foreground: 260 20% 95%;
-  --muted: 260 30% 12%;
-  --muted-foreground: 260 20% 65%;
-  --accent: 260 40% 16%;
-  --accent-foreground: 260 20% 95%;
+  --muted: 250 30% 10%;
+  --muted-foreground: 260 20% 70%;
+  --accent: 260 60% 15%;
+  --accent-foreground: 260 20% 98%;
   --destructive: 340 80% 60%;
   --destructive-foreground: 0 0% 98%;
-  --border: 260 30% 15%;
-  --input: 260 30% 15%;
+  --border: 250 30% 15%;
+  --input: 250 30% 15%;
   --ring: 265 89% 65%;
 }
 
@@ -99,11 +99,15 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-fuchsia-500 to-pink-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-indigo-400 to-cyan-400;
   }
   
   .glass-card {
-    @apply bg-background/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-primary/5 hover:shadow-primary/10 hover:border-primary/30 transition-all duration-500;
+    @apply bg-background/40 backdrop-blur-xl border border-white/5 shadow-xl hover:border-white/10 transition-all duration-500;
+  }
+
+  .bento-card {
+    @apply bg-secondary/30 backdrop-blur-md border border-white/5 shadow-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:border-primary/20 hover:bg-secondary/50 transition-all duration-500 rounded-3xl p-8 overflow-hidden relative;
   }
 
   .glow-primary {

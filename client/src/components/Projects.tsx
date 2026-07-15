@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, FolderGit2 } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, FolderGit2, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
@@ -13,45 +13,28 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group flex flex-col md:flex-row gap-8 py-12 border-b border-white/5 last:border-0"
+      className="bento-card group p-0 p-0 flex flex-col md:flex-row gap-0 overflow-hidden mb-8 max-w-6xl mx-auto"
     >
-      {/* Visual / Thumbnail */}
-      <div className="w-full md:w-5/12 aspect-[4/3] rounded-2xl overflow-hidden bg-background/50 border border-white/10 relative flex-shrink-0 shadow-xl group-hover:shadow-primary/20 transition-all duration-500">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-fuchsia-500/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
-        {project.images && project.images.length > 0 ? (
-          <img 
-            src={project.images[0]} 
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-secondary/30">
-            <FolderGit2 className="w-20 h-20 text-primary/30" />
-          </div>
-        )}
-        <div className="absolute top-4 left-4 z-20">
-          <Badge variant="secondary" className="bg-background/80 backdrop-blur-md font-medium border-none text-foreground">
-            {t(`projects_data.${project.slug}.category`, { defaultValue: project.category })}
-          </Badge>
-        </div>
-      </div>
-
       {/* Content */}
-      <div className="w-full md:w-7/12 flex flex-col justify-center">
+      <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center order-2 md:order-1 relative z-10">
+        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 backdrop-blur-md font-bold tracking-wide uppercase w-fit mb-6">
+          {t(`projects_data.${project.slug}.category`, { defaultValue: project.category })}
+        </Badge>
+
         <Link href={`/project/${project.slug}`}>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors flex items-center gap-2 cursor-pointer">
+          <h3 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight group-hover:text-primary transition-colors flex items-center gap-3 cursor-pointer">
             {t(`projects_data.${project.slug}.title`, { defaultValue: project.title })}
-            <ArrowUpRight className="w-6 h-6 opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-primary duration-300" />
+            <ArrowUpRight className="w-8 h-8 opacity-0 -translate-x-4 translate-y-4 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-primary duration-300" />
           </h3>
         </Link>
         
-        <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl text-lg font-light">
+        <p className="text-muted-foreground leading-relaxed mb-8 text-lg font-light">
           {t(`projects_data.${project.slug}.description`, { defaultValue: project.description })}
         </p>
         
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-10">
           {project.tags.map((tag: string) => (
-            <span key={tag} className="text-sm font-mono text-primary bg-primary/10 px-3 py-1.5 rounded-md">
+            <span key={tag} className="text-xs font-bold font-mono text-secondary-foreground bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
               {tag}
             </span>
           ))}
@@ -60,7 +43,7 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
         <div className="flex gap-4 mt-auto">
           {project.links.demo !== "#" && (
             <Button 
-              className="rounded-xl h-12 px-6 shadow-md hover:-translate-y-0.5 transition-transform"
+              className="rounded-full h-12 px-8 shadow-[0_0_15px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.5)] hover:-translate-y-1 transition-all duration-300"
               onClick={() => window.open(project.links.demo, "_blank")}
             >
               <ExternalLink className="w-4 h-4 mr-2" /> 
@@ -70,7 +53,7 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
           {project.links.github && project.links.github !== "#" && (
             <Button 
               variant="outline" 
-              className="rounded-xl h-12 px-6 bg-transparent hover:bg-secondary border-border/50 hover:-translate-y-0.5 transition-all"
+              className="rounded-full h-12 px-8 bg-transparent border-white/20 hover:bg-white/10 hover:border-white/30 hover:-translate-y-1 transition-all duration-300"
               onClick={() => window.open(project.links.github, "_blank")}
             >
               <Github className="w-4 h-4 mr-2" /> 
@@ -78,6 +61,24 @@ const ProjectCard = ({ project, index, t }: { project: any, index: number, t: an
             </Button>
           )}
         </div>
+      </div>
+
+      {/* Visual / Thumbnail */}
+      <div className="w-full md:w-1/2 aspect-video md:aspect-auto bg-background/50 relative flex-shrink-0 order-1 md:order-2 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-transparent md:from-secondary md:via-secondary/50 md:to-transparent z-10 pointer-events-none hidden md:block"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent z-10 pointer-events-none md:hidden"></div>
+        
+        {project.images && project.images.length > 0 ? (
+          <img 
+            src={project.images[0]} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-secondary/30">
+            <FolderGit2 className="w-24 h-24 text-primary/20" />
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -89,17 +90,19 @@ export default function Projects() {
   return (
     <section id="projects" className="py-32 bg-transparent relative">
       {/* Decorative right blurry spot */}
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-fuchsia-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
-          className="max-w-3xl mb-20"
+          className="max-w-3xl mb-20 mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('projects.badge')}</h2>
-          <h3 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">{t('projects.title')}</h3>
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full">
+            <Layers className="w-4 h-4" /> {t('projects.badge')}
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">{t('projects.title')}</h3>
           <p className="text-xl text-muted-foreground font-light">
             {t('projects.desc')}
           </p>

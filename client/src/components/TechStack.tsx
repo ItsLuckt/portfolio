@@ -14,7 +14,7 @@ import {
   SiGit
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
-import { Languages } from "lucide-react";
+import { Languages, TerminalSquare } from "lucide-react";
 
 export default function TechStack() {
   const { t } = useTranslation();
@@ -62,9 +62,9 @@ export default function TechStack() {
   ];
 
   return (
-    <section id="skills" className="py-32 bg-background/30 backdrop-blur-sm border-b border-white/5 relative">
+    <section id="skills" className="py-32 bg-transparent relative">
       {/* Decorative blurry spot */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -73,14 +73,16 @@ export default function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('techstack.badge')}</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('techstack.title')}</h3>
-          <p className="text-lg text-muted-foreground font-light">
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full">
+            <TerminalSquare className="w-4 h-4" /> {t('techstack.badge')}
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">{t('techstack.title')}</h3>
+          <p className="text-lg text-muted-foreground font-light max-w-2xl">
             {t('techstack.desc')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {skillCategories.map((category, idx) => (
             <motion.div 
               key={category.title}
@@ -88,21 +90,21 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass-card rounded-2xl p-6"
+              className="bento-card group flex flex-col"
             >
-              <h4 className="text-xl font-bold border-b border-border/40 pb-4 mb-6 text-foreground">{category.title}</h4>
-              <div className="flex flex-col gap-5">
+              <h4 className="text-xl font-bold mb-6 text-foreground tracking-tight group-hover:text-primary transition-colors">{category.title}</h4>
+              <div className="flex flex-col gap-4 flex-grow">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-start gap-4 group"
+                    className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors duration-300"
                   >
-                    <div className="mt-1 p-2.5 rounded-xl bg-muted/50 border border-border/50 group-hover:scale-110 group-hover:bg-background transition-all duration-300 flex items-center justify-center shadow-sm">
-                      <skill.icon className="w-6 h-6 transition-colors duration-300" style={{ color: skill.color }} />
+                    <div className="mt-1 p-2.5 rounded-xl bg-background border border-white/5 shadow-inner flex items-center justify-center">
+                      <skill.icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }} />
                     </div>
                     <div>
-                      <span className="font-semibold text-foreground block mb-1 group-hover:text-primary transition-colors">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground/80 leading-relaxed font-light">{skill.desc}</span>
+                      <span className="font-bold text-foreground block mb-0.5">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground/80 leading-relaxed font-medium">{skill.desc}</span>
                     </div>
                   </div>
                 ))}
