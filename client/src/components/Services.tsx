@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Server, Gamepad2, Blocks } from "lucide-react";
+import { Code2, Server, Gamepad2, Blocks, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function Services() {
@@ -33,17 +33,19 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 relative bg-background/50 border-y border-white/5 backdrop-blur-sm">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="services" className="py-24 border-b-4 border-foreground bg-primary/5">
+      <div className="container mx-auto px-6">
         <motion.div 
-          className="max-w-3xl mb-16"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 border-b-4 border-foreground pb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">{t('services.badge')}</h2>
-          <h3 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">{t('services.title')}</h3>
-          <p className="text-lg text-muted-foreground leading-relaxed font-light">
+          <div className="max-w-2xl">
+            <h2 className="text-xl font-bold tracking-widest text-primary uppercase mb-4">{"// " + t('services.badge')}</h2>
+            <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">{t('services.title')}</h3>
+          </div>
+          <p className="text-lg md:text-xl text-foreground font-medium max-w-sm">
             {t('services.desc')}
           </p>
         </motion.div>
@@ -55,22 +57,25 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="glass-card rounded-2xl p-8 group relative overflow-hidden"
+              transition={{ delay: index * 0.1 }}
+              className="glass-card p-8 group relative overflow-hidden flex flex-col h-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="flex justify-between items-start mb-8">
+                <div className="p-4 border-4 border-foreground bg-primary text-primary-foreground">
+                  <service.icon className="w-8 h-8" />
+                </div>
+                <ArrowUpRight className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              </div>
               
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-6 inline-flex p-4 rounded-xl bg-primary/10 text-primary w-fit group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                  <service.icon className="w-6 h-6" />
-                </div>
-                <h4 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h4>
-                <p className="text-muted-foreground leading-relaxed flex-grow mb-8 font-light">
-                  {service.description}
-                </p>
-                <div className="pt-5 border-t border-border/40 mt-auto">
-                  <span className="text-xs font-mono text-muted-foreground/80 bg-secondary/50 px-3 py-1.5 rounded-full">{service.tech}</span>
-                </div>
+              <h4 className="text-3xl font-black uppercase tracking-tight mb-4">{service.title}</h4>
+              <p className="text-lg text-foreground/80 font-medium mb-8 flex-grow">
+                {service.description}
+              </p>
+              
+              <div className="pt-6 border-t-2 border-foreground mt-auto">
+                <span className="text-sm font-bold uppercase tracking-widest bg-secondary text-foreground px-4 py-2 border-2 border-foreground inline-block">
+                  {service.tech}
+                </span>
               </div>
             </motion.div>
           ))}
