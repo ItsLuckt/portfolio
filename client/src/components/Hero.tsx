@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Code2, Terminal, Sparkles, Layers } from "lucide-react";
+import { ArrowRight, Code2, Terminal, Sparkles, Layers } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { SiRoblox } from "react-icons/si";
 import { useTranslation, Trans } from "react-i18next";
@@ -60,7 +61,7 @@ export default function Hero() {
               className="w-full sm:w-auto rounded-full text-base px-8 h-14 bg-background/40 backdrop-blur-xl border-border/50 hover:bg-secondary hover:border-border hover:-translate-y-0.5 transition-all duration-300"
               onClick={() => window.open("https://github.com/ItsLuckt", "_blank")}
             >
-              <Github className="mr-2 w-5 h-5" /> {t('hero.btn_github')}
+              <SiGithub className="mr-2 w-5 h-5" /> {t('hero.btn_github')}
             </Button>
           </div>
         </motion.div>

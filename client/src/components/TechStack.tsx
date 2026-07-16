@@ -14,7 +14,7 @@ import {
   SiGit
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
-import { Languages } from "lucide-react";
+import { Languages, TerminalSquare } from "lucide-react";
 
 export default function TechStack() {
   const { t } = useTranslation();
@@ -23,87 +23,89 @@ export default function TechStack() {
     {
       title: t('techstack.categories.0.title'),
       skills: [
-        { name: "Python", icon: SiPython, color: "#3776AB" },
-        { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-        { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+        { name: "Python", icon: SiPython, color: "#3776AB", desc: t('techstack.categories.0.skills.0.desc') },
+        { name: "Node.js", icon: SiNodedotjs, color: "#339933", desc: t('techstack.categories.0.skills.1.desc') },
+        { name: "MySQL", icon: SiMysql, color: "#4479A1", desc: t('techstack.categories.0.skills.2.desc') },
       ]
     },
     {
       title: t('techstack.categories.1.title'),
       skills: [
-        { name: "React", icon: SiReact, color: "#61DAFB" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-        { name: "HTML5/CSS3", icon: SiHtml5, color: "#E34F26" },
+        { name: "React", icon: SiReact, color: "#61DAFB", desc: t('techstack.categories.1.skills.0.desc') },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: t('techstack.categories.1.skills.1.desc') },
+        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", desc: t('techstack.categories.1.skills.2.desc') },
+        { name: "HTML5/CSS3", icon: SiHtml5, color: "#E34F26", desc: t('techstack.categories.1.skills.3.desc') },
       ]
     },
     {
       title: t('techstack.categories.2.title'),
       skills: [
-        { name: "Luau", icon: SiRoblox, color: "#00A2FF" },
-        { name: "Lua", icon: SiLua, color: "#000080" },
-        { name: "Dart", icon: SiDart, color: "#0175C2" },
+        { name: "Luau", icon: SiRoblox, color: "#00A2FF", desc: t('techstack.categories.2.skills.0.desc') },
+        { name: "Lua", icon: SiLua, color: "#000080", desc: t('techstack.categories.2.skills.1.desc') },
+        { name: "Dart", icon: SiDart, color: "#0175C2", desc: t('techstack.categories.2.skills.2.desc') },
       ]
     },
     {
       title: t('techstack.categories.3.title'),
       skills: [
-        { name: "Git", icon: SiGit, color: "#F05032" },
+        { name: "Git", icon: SiGit, color: "#F05032", desc: t('techstack.categories.3.skills.0.desc') },
       ]
     },
     {
       title: t('techstack.categories.4.title'),
       skills: [
-        { name: t('techstack.categories.4.skills.0.name'), icon: Languages, color: "#9333ea" },
-        { name: t('techstack.categories.4.skills.1.name'), icon: Languages, color: "#d946ef" },
-        { name: t('techstack.categories.4.skills.2.name'), icon: Languages, color: "#ec4899" },
+        { name: t('techstack.categories.4.skills.0.name'), icon: Languages, color: "#9333ea", desc: t('techstack.categories.4.skills.0.desc') },
+        { name: t('techstack.categories.4.skills.1.name'), icon: Languages, color: "#d946ef", desc: t('techstack.categories.4.skills.1.desc') },
+        { name: t('techstack.categories.4.skills.2.name'), icon: Languages, color: "#ec4899", desc: t('techstack.categories.4.skills.2.desc') },
       ]
     }
   ];
 
   return (
-    <section id="skills" className="py-24 border-b-4 border-foreground bg-secondary/50">
-      <div className="container mx-auto px-6">
+    <section className="py-12 bg-transparent relative">
+      {/* Decorative blurry spot */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="mb-20 flex flex-col md:flex-row md:items-end justify-between border-b-4 border-foreground pb-8 gap-8"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div>
-            <h2 className="text-xl font-bold tracking-widest text-primary uppercase mb-4">
-              {"// " + t('techstack.badge')}
-            </h2>
-            <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">{t('techstack.title')}</h3>
-          </div>
-          <p className="text-lg md:text-xl font-medium text-foreground max-w-sm">
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full">
+            <TerminalSquare className="w-4 h-4" /> {t('techstack.badge')}
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">{t('techstack.title')}</h3>
+          <p className="text-lg text-muted-foreground font-light max-w-2xl">
             {t('techstack.desc')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {skillCategories.map((category, idx) => (
             <motion.div 
               key={category.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass-card flex flex-col h-full"
+              className="bento-card group flex flex-col"
             >
-              <div className="bg-foreground text-background p-6 border-b-4 border-foreground">
-                <h4 className="text-2xl font-black uppercase tracking-widest">{category.title}</h4>
-              </div>
-              <div className="p-8 flex flex-col gap-6 flex-grow bg-background">
+              <h4 className="text-xl font-bold mb-6 text-foreground tracking-tight group-hover:text-primary transition-colors">{category.title}</h4>
+              <div className="flex flex-col gap-4 flex-grow">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-6 group cursor-pointer"
+                    className="flex items-start gap-4 p-3 rounded-2xl hover:bg-white/5 transition-colors duration-300"
                   >
-                    <div className="p-3 border-4 border-foreground bg-secondary group-hover:bg-primary transition-colors duration-300">
-                      <skill.icon className="w-8 h-8 group-hover:text-primary-foreground" style={{ color: skill.color }} />
+                    <div className="mt-1 p-2.5 rounded-xl bg-background border border-white/5 shadow-inner flex items-center justify-center">
+                      <skill.icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" style={{ color: skill.color }} />
                     </div>
-                    <span className="text-xl font-bold uppercase tracking-wide group-hover:text-primary transition-colors">{skill.name}</span>
+                    <div>
+                      <span className="font-bold text-foreground block mb-0.5">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground/80 leading-relaxed font-medium">{skill.desc}</span>
+                    </div>
                   </div>
                 ))}
               </div>

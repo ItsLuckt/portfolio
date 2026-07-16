@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, MessageSquare } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,7 @@ export default function Contact() {
     
     setIsSubmitting(true);
     
+    // Simulate sending
     setTimeout(() => {
       toast({
         title: t('contact.form.success_title', 'Message envoyé !'),
@@ -39,74 +40,70 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-primary/5 border-t-4 border-foreground">
+    <section className="py-12 bg-background/40 backdrop-blur-md relative border-t border-white/5 rounded-3xl">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
-          className="mb-20 flex flex-col md:flex-row md:items-end justify-between border-b-4 border-foreground pb-8 gap-8"
+          className="max-w-3xl mb-20 text-center mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div>
-            <h2 className="text-xl font-bold tracking-widest text-primary uppercase mb-4">
-              {"// " + t('contact.badge')}
-            </h2>
-            <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">{t('contact.title')}</h3>
-          </div>
-          <p className="text-lg md:text-xl font-medium text-foreground max-w-sm">
+          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full"><MessageSquare className="w-4 h-4" /> {t('contact.badge')}</h2>
+          <h3 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">{t('contact.title')}</h3>
+          <p className="text-xl text-muted-foreground font-light">
             {t('contact.desc')}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-8 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-between"
+            className="lg:col-span-2 flex flex-col justify-between"
           >
-            <div className="space-y-6">
-              <div className="glass-card p-6 flex items-center gap-6 group hover:bg-primary transition-colors duration-300">
-                <div className="p-4 border-4 border-foreground bg-background group-hover:bg-foreground group-hover:text-background transition-colors duration-300">
-                  <Mail className="w-8 h-8" />
+            <div className="space-y-8 glass-card p-8 rounded-2xl">
+              <div className="flex items-center gap-5 group">
+                <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-1 group-hover:text-primary-foreground/80">Email</h4>
-                  <a href="mailto:luckt.rbx@gmail.com" className="text-2xl font-black text-foreground group-hover:text-primary-foreground">
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Email</h4>
+                  <a href="mailto:luckt.rbx@gmail.com" className="text-lg font-bold text-foreground hover:text-primary transition-colors">
                     luckt.rbx@gmail.com
                   </a>
                 </div>
               </div>
               
-              <div className="glass-card p-6 flex items-center gap-6 group hover:bg-primary transition-colors duration-300">
-                <div className="p-4 border-4 border-foreground bg-background group-hover:bg-foreground group-hover:text-background transition-colors duration-300">
-                  <FaDiscord className="w-8 h-8" />
+              <div className="flex items-center gap-5 group">
+                <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
+                  <FaDiscord className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-1 group-hover:text-primary-foreground/80">Discord</h4>
-                  <p className="text-2xl font-black text-foreground group-hover:text-primary-foreground">luckt</p>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">Discord</h4>
+                  <p className="text-lg font-bold text-foreground">luckt</p>
                 </div>
               </div>
 
-              <div className="glass-card p-6 flex items-center gap-6 group hover:bg-primary transition-colors duration-300">
-                <div className="p-4 border-4 border-foreground bg-background group-hover:bg-foreground group-hover:text-background transition-colors duration-300">
-                  <MapPin className="w-8 h-8" />
+              <div className="flex items-center gap-5 group">
+                <div className="p-4 bg-fuchsia-500/10 rounded-2xl text-fuchsia-500 group-hover:bg-fuchsia-500 group-hover:text-white transition-colors duration-300">
+                  <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest mb-1 group-hover:text-primary-foreground/80">{t('contact.location')}</h4>
-                  <p className="text-2xl font-black text-foreground group-hover:text-primary-foreground">{t('contact.city')}</p>
+                  <h4 className="text-sm font-medium text-muted-foreground mb-1">{t('contact.location')}</h4>
+                  <p className="text-lg font-bold text-foreground">{t('contact.city')}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 glass-card flex items-center gap-6 border-l-8 border-l-green-500 bg-background">
-              <span className="relative flex h-6 w-6">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-none h-6 w-6 bg-green-500 border-2 border-foreground"></span>
+            <div className="mt-8 p-6 rounded-2xl glass-card flex items-center gap-4 bg-gradient-to-r from-primary/5 to-transparent">
+              <span className="relative flex h-4 w-4">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
               </span>
               <div>
-                <span className="text-xl font-black uppercase text-foreground block">{t('contact.status')}</span>
-                <span className="text-sm font-bold tracking-widest text-muted-foreground uppercase">Prêt pour de nouveaux projets</span>
+                <span className="text-sm font-bold text-foreground block">{t('contact.status')}</span>
+                <span className="text-xs text-muted-foreground">Prêt pour de nouveaux projets</span>
               </div>
             </div>
           </motion.div>
@@ -115,47 +112,59 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 md:p-12 space-y-6"
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-3 space-y-6 glass-card p-8 md:p-10 rounded-2xl"
             onSubmit={handleSubmit}
           >
-            <div className="space-y-3">
-              <label className="text-sm font-bold uppercase tracking-widest text-foreground">{t('contact.form.name')}</label>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground ml-1">{t('contact.form.name')}</label>
+                <Input 
+                  placeholder={t('contact.form.name_placeholder')} 
+                  className="h-14 bg-background/50 border-white/10 focus-visible:ring-primary/50 rounded-xl" 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground ml-1">{t('contact.form.email')}</label>
+                <Input 
+                  placeholder={t('contact.form.email_placeholder')} 
+                  type="email" 
+                  className="h-14 bg-background/50 border-white/10 focus-visible:ring-primary/50 rounded-xl" 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground ml-1">{t('contact.form.subject')}</label>
               <Input 
-                placeholder={t('contact.form.name_placeholder')} 
-                className="h-16 bg-secondary/50 border-4 border-foreground focus-visible:ring-0 focus-visible:border-primary rounded-none shadow-[6px_6px_0px_0px_rgba(var(--color-foreground))] focus-visible:shadow-[2px_2px_0px_0px_rgba(var(--color-foreground))] focus-visible:translate-x-[4px] focus-visible:translate-y-[4px] transition-all text-lg font-medium" 
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                placeholder={t('contact.form.subject_placeholder')} 
+                className="h-14 bg-background/50 border-white/10 focus-visible:ring-primary/50 rounded-xl" 
+                value={formData.subject}
+                onChange={(e) => setFormData({...formData, subject: e.target.value})}
               />
             </div>
-            <div className="space-y-3">
-              <label className="text-sm font-bold uppercase tracking-widest text-foreground">{t('contact.form.email')}</label>
-              <Input 
-                placeholder={t('contact.form.email_placeholder')} 
-                type="email" 
-                className="h-16 bg-secondary/50 border-4 border-foreground focus-visible:ring-0 focus-visible:border-primary rounded-none shadow-[6px_6px_0px_0px_rgba(var(--color-foreground))] focus-visible:shadow-[2px_2px_0px_0px_rgba(var(--color-foreground))] focus-visible:translate-x-[4px] focus-visible:translate-y-[4px] transition-all text-lg font-medium" 
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
-            </div>
-            <div className="space-y-3">
-              <label className="text-sm font-bold uppercase tracking-widest text-foreground">{t('contact.form.message')}</label>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground ml-1">{t('contact.form.message')}</label>
               <Textarea 
                 placeholder={t('contact.form.message_placeholder')} 
-                className="min-h-[200px] bg-secondary/50 border-4 border-foreground focus-visible:ring-0 focus-visible:border-primary rounded-none shadow-[6px_6px_0px_0px_rgba(var(--color-foreground))] focus-visible:shadow-[2px_2px_0px_0px_rgba(var(--color-foreground))] focus-visible:translate-x-[4px] focus-visible:translate-y-[4px] transition-all text-lg font-medium resize-none p-4" 
+                className="min-h-[180px] bg-background/50 border-white/10 focus-visible:ring-primary/50 rounded-xl resize-none p-4" 
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
               />
             </div>
-            <Button type="submit" size="lg" className="w-full h-16 text-xl font-black uppercase tracking-widest rounded-none border-4 border-foreground bg-primary text-primary-foreground shadow-[8px_8px_0px_0px_rgba(var(--color-foreground))] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(var(--color-foreground))] transition-all mt-8" disabled={isSubmitting}>
-              {isSubmitting ? "..." : <>{t('contact.form.submit')} <Send className="w-6 h-6 ml-3" /></>}
+            <Button type="submit" size="lg" className="w-full h-14 text-base font-bold mt-4 rounded-xl bg-primary hover:bg-primary/90 text-white shadow-lg hover:-translate-y-1 transition-all duration-300" disabled={isSubmitting}>
+              {isSubmitting ? "..." : <>{t('contact.form.submit')} <Send className="w-5 h-5 ml-2" /></>}
             </Button>
           </motion.form>
         </div>
       </div>
 
-      <footer className="mt-32 pt-8 border-t-4 border-foreground text-center text-sm text-foreground font-bold uppercase tracking-widest flex flex-col md:flex-row justify-between items-center px-6 container mx-auto gap-4 pb-8">
-        <p>© {new Date().getFullYear()} Luckt. {t('contact.footer')}</p>
-        <Link href="/mentions-legales" className="hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary">{t('contact.legal')}</Link>
+      <footer className="mt-20 pt-8 border-t border-white/10 text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center px-6 container mx-auto gap-4 pb-8">
+        <p className="font-medium">© {new Date().getFullYear()} Luckt. {t('contact.footer')}</p>
+        <Link href="/mentions-legales" className="hover:text-primary transition-colors">{t('contact.legal')}</Link>
       </footer>
     </section>
   );

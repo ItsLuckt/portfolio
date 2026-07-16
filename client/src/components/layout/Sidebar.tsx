@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Hexagon, Languages, Home, Code2, Briefcase, Blocks, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "../ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTranslation } from "react-i18next";
 import {
   DropdownMenu,
@@ -18,7 +18,7 @@ export default function Sidebar() {
   const { t, i18n } = useTranslation();
 
   const navLinks = [
-    { name: "Accueil", href: "/", icon: Home },
+    { name: t('nav.home', 'Accueil'), href: "/", icon: Home },
     { name: t('nav.expertise'), href: "/services", icon: Code2 },
     { name: t('nav.experience'), href: "/experience", icon: Briefcase },
     { name: t('nav.stack'), href: "/skills", icon: Blocks },
@@ -36,7 +36,7 @@ export default function Sidebar() {
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-background/80 backdrop-blur-lg border-b border-border/50 z-50 flex items-center justify-between px-4">
         <Link href="/">
           <div className="flex items-center gap-2 font-bold text-xl cursor-pointer">
-            <Hexagon className="w-6 h-6 text-blue-500" />
+            <Hexagon className="w-6 h-6 text-primary" />
             <span className="text-foreground tracking-tight">Luckt</span>
           </div>
         </Link>

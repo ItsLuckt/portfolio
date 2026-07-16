@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, ExternalLink, Play, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play, CheckCircle2 } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/data/projects";
@@ -37,7 +38,7 @@ export default function ProjectDetail() {
       <div className={`absolute top-0 left-0 right-0 h-[50vh] bg-gradient-to-b ${project.color} opacity-10 -z-10 blur-3xl`} />
 
       <div className="container mx-auto px-6 max-w-4xl">
-        <Link href="/#projects">
+        <Link href="/projects">
           <Button variant="ghost" className="mb-8 pl-0 hover:pl-2 transition-all group">
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> {t('project_detail.back')}
           </Button>
@@ -52,7 +53,7 @@ export default function ProjectDetail() {
             <Badge variant="outline" className="text-primary border-primary/30 px-3 py-1 text-sm">
               {category}
             </Badge>
-            {project.tags.map(tag => (
+            {project.tags.map((tag: string) => (
               <Badge key={tag} variant="secondary" className="bg-secondary/50">
                 {tag}
               </Badge>
@@ -75,7 +76,7 @@ export default function ProjectDetail() {
                   {t('project_detail.features')}
                 </h2>
                 <ul className="space-y-4">
-                  {features.map((feature, index) => (
+                  {features && features.map((feature: string, index: number) => (
                     <li key={index} className="flex items-start gap-3 text-muted-foreground">
                       <div className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       {feature}
@@ -106,7 +107,7 @@ export default function ProjectDetail() {
                       size="lg"
                       onClick={() => window.open(project.links.github, "_blank")}
                     >
-                      <Github className="mr-2 h-4 w-4" />
+                      <SiGithub className="mr-2 h-4 w-4" />
                       {t('project_detail.view_code')}
                     </Button>
                   )}

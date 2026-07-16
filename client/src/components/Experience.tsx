@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { ArrowRight } from "lucide-react";
+import { Briefcase, GraduationCap, Award } from "lucide-react";
 
 export default function Experience() {
   const { t } = useTranslation();
@@ -11,73 +11,71 @@ export default function Experience() {
       role: t('experience.items.0.role'),
       company: t('experience.items.0.company'),
       description: t('experience.items.0.desc'),
+      icon: Briefcase,
     },
     {
       year: t('experience.items.1.year'),
       role: t('experience.items.1.role'),
       company: t('experience.items.1.company'),
       description: t('experience.items.1.desc'),
+      icon: Award,
     },
     {
       year: t('experience.items.2.year'),
       role: t('experience.items.2.role'),
       company: t('experience.items.2.company'),
       description: t('experience.items.2.desc'),
+      icon: GraduationCap,
     }
   ];
 
   return (
-    <section id="experience" className="py-24 border-b-4 border-foreground">
-      <div className="container mx-auto px-6">
+    <section className="py-12 relative bg-transparent">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div 
-          className="mb-20 flex flex-col md:flex-row md:items-end justify-between border-b-4 border-foreground pb-8 gap-8"
+          className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div>
-            <h2 className="text-xl font-bold tracking-widest text-primary uppercase mb-4">
-              {"// " + t('experience.badge')}
-            </h2>
-            <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">{t('experience.title')}</h3>
-          </div>
-          <p className="text-lg md:text-xl font-medium text-foreground max-w-sm">
+          <h2 className="text-sm font-bold tracking-widest text-primary uppercase mb-3 inline-flex items-center gap-2 bg-primary/10 px-4 py-1.5 rounded-full">
+             {t('experience.badge')}
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">{t('experience.title')}</h3>
+          <p className="text-lg text-muted-foreground font-light">
             {t('experience.desc')}
           </p>
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div 
               key={index}
-              className="glass-card group flex flex-col md:flex-row md:items-stretch"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="bento-card group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
             >
-              {/* Year Block */}
-              <div className="bg-foreground text-background p-6 md:w-48 flex items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-foreground shrink-0">
-                <span className="text-2xl font-black tracking-widest">{exp.year}</span>
-              </div>
-              
-              {/* Content Block */}
-              <div className="p-8 flex-grow flex flex-col justify-center">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                  <h4 className="text-3xl font-black uppercase text-foreground">{exp.role}</h4>
-                  <div className="flex items-center gap-2 px-4 py-2 border-2 border-primary bg-primary/10 text-primary font-bold uppercase tracking-wider w-fit">
-                    {exp.company}
+              {/* Decorative background glow */}
+              <div className="absolute -right-20 -top-20 w-40 h-40 bg-primary/20 rounded-full blur-[50px] group-hover:bg-primary/30 transition-all duration-500"></div>
+
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="p-3 bg-secondary/80 rounded-2xl shadow-inner group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-foreground">
+                    <exp.icon className="w-6 h-6" />
                   </div>
+                  <span className="text-xs font-bold tracking-wider text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
+                    {exp.year}
+                  </span>
                 </div>
                 
-                <p className="text-lg text-foreground/80 font-medium max-w-3xl">
+                <h4 className="text-2xl font-bold text-foreground leading-tight mb-2 group-hover:text-primary transition-colors">{exp.role}</h4>
+                <h5 className="text-sm text-muted-foreground mb-6 font-medium tracking-wide uppercase">{exp.company}</h5>
+                
+                <p className="text-muted-foreground/80 leading-relaxed font-light mt-auto">
                   {exp.description}
                 </p>
-              </div>
-
-              {/* Action Block */}
-              <div className="hidden md:flex w-24 border-l-4 border-foreground bg-secondary items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shrink-0">
-                <ArrowRight className="w-10 h-10" />
               </div>
             </motion.div>
           ))}
