@@ -94,7 +94,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="w-full max-w-lg relative z-20 text-left -mt-12 lg:-mt-24 mr-0 lg:mr-20"
+            className="w-full max-w-lg relative z-20 text-left mr-0 lg:mr-20"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -109,7 +109,7 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
                 <div className="text-[10px] uppercase tracking-wider font-mono text-muted-foreground/80 flex items-center">
-                  <Terminal className="w-3 h-3 mr-1.5" /> luckt.dev
+                  <Terminal className="w-3 h-3 mr-1.5" /> ItsLuckt
                 </div>
               </div>
               

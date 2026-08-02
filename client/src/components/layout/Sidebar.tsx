@@ -37,7 +37,7 @@ export default function Sidebar() {
         <Link href="/">
           <div className="flex items-center gap-2 font-bold text-xl cursor-pointer">
             <Hexagon className="w-6 h-6 text-primary" />
-            <span className="text-foreground tracking-tight">Luckt</span>
+            <span className="text-foreground tracking-tight">ItsLuckt</span>
           </div>
         </Link>
         <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ export default function Sidebar() {
                 </div>
               </motion.div>
               <span className="text-foreground tracking-tight">
-                Luckt<span className="text-primary">.dev</span>
+                Its<span className="text-primary">Luckt</span>
               </span>
             </motion.div>
           </Link>
